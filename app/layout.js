@@ -1,5 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layouts/Header";
+import Footer from "@/components/layouts/Footer";
+import CartEvent from "@/components/ui/CartEvent";
+import Cart from "@/components/modals/Cart";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,9 +22,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className="scroll-smooth" data-mode="light" dir="ltr">
+      <head>
+        <meta charSet="utf-8" />
+        <title>Halo - Ecommerce Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="Ecommerce Template" name="description" />
+        <meta content="SRBThemes" name="author" />
+      </head>
+       <body className="text-base font-body">
+        <Header />
+        <CartEvent />
+        {/* <Cart /> */}
         {children}
+        <Footer />
       </body>
     </html>
   );
