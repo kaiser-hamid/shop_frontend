@@ -147,7 +147,7 @@ export default function ShopBySelect() {
                                         nextEl: '.shopby-next',
                                         prevEl: '.shopby-prev',
                                     }}
-                                    pagination={{ clickable: true }}
+                                    pagination={false}
                                     spaceBetween={24}
                                     slidesPerView={1}
                                     breakpoints={{

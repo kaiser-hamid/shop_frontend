@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 import PageLoader from "@/components/ui/PageLoader";
 import Header from "@/components/layouts/Header";
 import BannerSlider from "@/components/sections/home/BannerSlider";
@@ -15,7 +14,7 @@ import HeaderStart from "@/components/partials/HeaderStart";
 export default function Home() {
   return (
     <>
-    <HeaderStart />
+    {/* <HeaderStart /> */}
     <BannerSlider />
     <ShopBySelect />
     <ShortCategoryLeft />

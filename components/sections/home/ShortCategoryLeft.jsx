@@ -70,7 +70,7 @@ export default function ShortCategoryLeft() {
                     </div>
                     {/* Product cards */}
                     <div className="w-full lg:w-3/5 flex flex-col">
-                        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6 h-full">
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-6 h-full">
                             {skincareProducts.map(product => (
                                 <Product key={product.id} product={product} />
                             ))}
