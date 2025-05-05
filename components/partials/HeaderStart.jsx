@@ -20,7 +20,7 @@ export default function HeaderStart() {
                 >
                     <SwiperSlide>
                         <p className="text-xs font-semibold py-2.5">
-                            SHOP NOW, PAY LATER WITH HALOPAY®. LEARN NOW
+                            SHOP NOW, PAY LATER. LEARN NOW
                         </p>
                     </SwiperSlide>
                     <SwiperSlide>

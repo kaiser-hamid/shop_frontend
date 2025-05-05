@@ -25,10 +25,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth" data-mode="light" dir="ltr">
       <head>
         <meta charSet="utf-8" />
-        <title>Halo - Ecommerce Template</title>
+        <title>Shajgoj - Buy authentic cosmetic and beauty products online in Bangladesh</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta content="Ecommerce Template" name="description" />
-        <meta content="SRBThemes" name="author" />
+        <meta content="Shajgoj" name="Shajgoj is the first online cosmetic and beauty products store in Bangladesh" />
+        <meta content="Shajgoj" name="random author" />
       </head>
        <body className="text-base font-body">
         <Header />

@@ -46,7 +46,7 @@ export default function Footer() {
                                 <DevicePhoneMobileIcon className="h-8 w-8 text-white" />
                             </div>
                             <div className="flex-grow">
-                                <h3 className="text-base font-bold text-white">Download HALO App</h3>
+                                <h3 className="text-base font-bold text-white">Download Shop App</h3>
                                 <p className="text-white text-sm">Fusce venenatis varius consectetur.</p>
                             </div>
                         </div>
