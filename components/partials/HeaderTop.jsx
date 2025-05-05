@@ -4,8 +4,8 @@ import Login from "../modals/Login";
 
 export default function HeaderTop() {
     return (
-        <div className="hidden xl:block bg-black px-6">
-            <div className="px-4 lg:px-9 xl:max-w-[1370px] xl:px-0 mx-auto">
+        <div className="hidden xl:block bg-black">
+            <div className="container">
                 <div className="flex justify-between py-2.5">
                     <div className="flex items-center">
                         <div><img src="assets/images/logo/l-athena.png" alt="" /></div>

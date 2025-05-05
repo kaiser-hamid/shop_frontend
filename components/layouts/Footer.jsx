@@ -11,7 +11,7 @@ import {
 export default function Footer() {
     return (
         <footer className="bg-zinc-950 text-white px-4 xl:px-9 2xl:px-20 mb-14 lg:mb-0">
-            <div className="xl:max-w-[1370px] mx-auto">
+            <div className="container">
                 <div className="py-10 overflow-hidden overflow-x-auto">
                     <div className="flex flex-nowrap items-center lg:justify-between gap-10">
                         <div className="flex items-center whitespace-nowrap gap-3">

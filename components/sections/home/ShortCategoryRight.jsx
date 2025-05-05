@@ -47,8 +47,8 @@ const makeupProducts = [
 
 export default function ShortCategoryRight() {
     return (
-        <section className="py-8">
-            <div className="px-4 xl:px-0 xl:max-w-[1370px] xl:px-0 mx-auto text-center">
+        <section className="container py-8">
+            <div className="mx-auto text-center">
                 <h2 className="text-26 md:text-40 font-bodoni-moda font-semibold text-center">Makeup</h2>
                 <p className="font-normal text-zinc-500 mt-6 xl:max-w-[840px] mx-auto">
                     Fusce venenatis varius consectetur. Ut tempor lectus id mauris feugiat tempus. Integer condimentum congue nunc quis mollis. Vivamus suscipit dolor sed quam malesuada, nec aliquet sem faucibus.
@@ -60,7 +60,7 @@ export default function ShortCategoryRight() {
                     Shop all Skincare
                 </a>
             </div>
-            <div className="px-4 xl:px-0 xl:max-w-[1370px] xl:px-0 mx-auto">
+            <div className="mx-auto">
                 <div className="flex flex-col lg:flex-row gap-6 my-12">
                     {/* Left image for mobile only */}
                     <div className="w-full lg:w-2/5 flex-shrink-0 flex flex-col lg:hidden">

@@ -1,10 +1,8 @@
 "use client"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const slides = [
+const data = [
     {
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true" focusable="false" role="presentation" className="icon icon-heart-care h-9 w-9">
@@ -37,33 +35,18 @@ const slides = [
 export default function InfoStatusBanner() {
     return (
         <section className="pt-10 lg:py-16 xl:py-20">
-            <div className="px-4 xl:px-0 xl:max-w-[1370px] xl:px-0 mx-auto">
-                <Swiper
-                    modules={[Pagination]}
-                    pagination={{ clickable: true, el: '.productQualityCard .swiper-pagination' }}
-                    spaceBetween={24}
-                    slidesPerView={1}
-                    breakpoints={{
-                        640: { slidesPerView: 1 },
-                        1024: { slidesPerView: 3 },
-                    }}
-                    className="productQualityCard"
-                >
-                    <div className="pb-16 xl:pb-0">
-                        {slides.map((slide, idx) => (
-                            <SwiperSlide key={idx}>
-                                <div className="flex items-center justify-center gap-3">
-                                    <span>{slide.icon}</span>
-                                    <h3 className="text-17 font-bodoni-moda font-bold uppercase">{slide.title}</h3>
-                                </div>
-                                <div className="max-w-sm mx-auto text-center mt-8">
-                                    <p className="text-17 text-zinc-500">{slide.desc}</p>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </div>
-                    <div className="swiper-pagination gray-pagination"></div>
-                </Swiper>
+            <div className="container">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {data.map((slide, idx) => (
+                        <div key={idx} className="flex flex-col items-center justify-center gap-3 p-6 bg-white rounded shadow">
+                            <span>{slide.icon}</span>
+                            <h3 className="text-17 font-bodoni-moda font-bold uppercase mt-2 text-center">{slide.title}</h3>
+                            <div className="max-w-sm mx-auto text-center mt-4">
+                                <p className="text-17 text-zinc-500">{slide.desc}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );

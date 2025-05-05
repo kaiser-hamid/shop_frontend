@@ -12,8 +12,8 @@ import ProductInfoTab from "@/components/sections/product/ProductInfoTab";
 export default function ProductPage() {
 
     return (
-        <>
-            <div className="bg-zinc-50 px-4 lg:px-9 xl:px-16">
+        <section className="bg-zinc-50">
+            <div className="container">
                 {/* Breadcrumb  */}
                 <div className="pt-9 pb-5">
                     <div>
@@ -25,7 +25,7 @@ export default function ProductPage() {
                 </div>
 
                 {/* content */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:px-28 lg:gap-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
                     {/* Gallery */}
                     <ProductGallery />
                     {/* Product Info */}
@@ -37,6 +37,6 @@ export default function ProductPage() {
 
             </div>
             <RelatedProducts />
-        </>
+        </section>
     );
 }

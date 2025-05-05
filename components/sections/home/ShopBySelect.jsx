@@ -99,8 +99,8 @@ function classNames(...classes) {
 
 export default function ShopBySelect() {
     return (
-        <section className="my-8 lg:my-16">
-            <div className="px-4 xl:px-0 xl:max-w-[1370px] mx-auto">
+        <section className="container my-8 lg:my-16">
+            <div className="mx-auto">
                 <h2 className="text-2xl md:text-4xl font-bodoni-moda font-semibold text-center mb-6">
                     Shop by Select
                 </h2>

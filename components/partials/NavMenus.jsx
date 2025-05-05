@@ -2,53 +2,51 @@ import Link from "next/link"
 
 export default function NavMenus() {
     return (
-        <div className="max-w-screen-xl mx-auto w-full">
-            <div className="relative hidden xl:flex items-center xl:justify-between gap-9">
-                <ul className="hidden xl:flex items-center xl:justify-center gap-9">
-                    <li className="group inline-block">
-                        <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
-                            Face
-                        </a>
-                        <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
-                            <FaceMenus />
-                        </div>
-                    </li>
-                    <li className="group inline-block">
-                        <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
-                            Skin
-                        </a>
-                        <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
-                            <SubMenus />
-                        </div>
-                    </li>
-                    <li className="group inline-block">
-                        <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
-                            Beauty
-                        </a>
-                        <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
-                            <BeautyMenus />
-                        </div>
-                    </li>
-                    <li className="group inline-block relative">
-                        <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
-                            Blog
-                        </a>
-                        <div className="absolute left-0 bg-white shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-4 group-hover:translate-y-0 min-w-[180px]">
-                            <ul className="py-2">
-                                <li>
-                                    <Link href="/blog" className="block px-4 py-2 hover:text-primary-400 transition-colors">Latest Posts</Link>
-                                </li>
-                                <li>
-                                    <Link href="/blog/categories" className="block px-4 py-2 hover:text-primary-400 transition-colors">Categories</Link>
-                                </li>
-                                <li>
-                                    <Link href="/blog/about" className="block px-4 py-2 hover:text-primary-400 transition-colors">About Blog</Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        <div className="relative hidden xl:flex items-center xl:justify-between gap-9">
+            <ul className="hidden xl:flex items-center xl:justify-center gap-9">
+                <li className="group inline-block">
+                    <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
+                        Face
+                    </a>
+                    <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <FaceMenus />
+                    </div>
+                </li>
+                <li className="group inline-block">
+                    <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
+                        Skin
+                    </a>
+                    <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <SubMenus />
+                    </div>
+                </li>
+                <li className="group inline-block">
+                    <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
+                        Beauty
+                    </a>
+                    <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <BeautyMenus />
+                    </div>
+                </li>
+                <li className="group inline-block relative">
+                    <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
+                        Blog
+                    </a>
+                    <div className="absolute left-0 bg-white shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-4 group-hover:translate-y-0 min-w-[180px]">
+                        <ul className="py-2">
+                            <li>
+                                <Link href="/blog" className="block px-4 py-2 hover:text-primary-400 transition-colors">Latest Posts</Link>
+                            </li>
+                            <li>
+                                <Link href="/blog/categories" className="block px-4 py-2 hover:text-primary-400 transition-colors">Categories</Link>
+                            </li>
+                            <li>
+                                <Link href="/blog/about" className="block px-4 py-2 hover:text-primary-400 transition-colors">About Blog</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
     )
 }

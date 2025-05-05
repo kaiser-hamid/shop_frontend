@@ -49,13 +49,13 @@ const categories = [
 
 export default function ShopByCategory() {
     return (
-        <section className="my-12">
-            <div className="px-4 xl:px-0 xl:max-w-[1370px] xl:px-0 mx-auto text-center">
+        <section className="container my-12">
+            <div className="text-center">
                 <h2 className="text-26 md:text-40 font-bodoni-moda font-bold text-center">Shop by Category</h2>
                 <p className="font-normal text-zinc-500 mt-6">Fusce venenatis varius consectetur. Ut tempor lectus id mauris feugiat tempus.</p>
                 <a href="collection-list-04.html" className="inline-block mt-4 px-8 py-1.5 text-base font-bold border-2 rounded-full border-zinc-950 hover:text-white hover:bg-[#3a8551] hover:border-[#3a8551] transition-all duration-500 scale-100 group-hover/item:scale-105">Shop all Categories</a>
             </div>
-            <div className="px-4 xl:px-0 xl:max-w-[1370px] xl:px-0 mx-auto mt-10">
+            <div className="mx-auto mt-10">
                 <div className="flex justify-end gap-2 mb-4">
                     <button
                         className="shopbycat-prev bg-zinc-200 text-zinc-500 w-8 h-8 rounded-full flex items-center justify-center shadow hover:bg-black hover:text-white transition"
