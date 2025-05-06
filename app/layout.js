@@ -4,16 +4,8 @@ import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import CartEvent from "@/components/ui/CartEvent";
 import Cart from "@/components/modals/Cart";
+import ReduxProvider from "@/store/ReduxProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Ruprong | Buy authentic cosmetic and beauty products online in Bangladesh",
@@ -31,11 +23,13 @@ export default function RootLayout({ children }) {
         <meta content="Shajgoj" name="random author" />
       </head>
        <body className="text-base font-body">
-        <Header />
-        <CartEvent />
-        {/* <Cart /> */}
-        {children}
-        <Footer />
+        <ReduxProvider> 
+          <Header />
+          <CartEvent />
+          <Cart />
+          {children}
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );
