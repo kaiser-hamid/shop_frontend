@@ -66,7 +66,7 @@ const products = [
 
 export default function RelatedProducts() {
     return (
-        <section class="container my-14">
+        <section class="container py-14">
             <h3 class="py-8 flex-grow  lg:text-2xl uppercase font-bold  relative before:hidden sm:before:block before:absolute before:top-[50%] before:left-0 before:w-full before:h-0.5 before:bg-zinc-200 text-center ">
                 <span class="relative z-0 pe-1 xs:px-5 bg-zinc-50  ">RELATED PRODUCTS</span>
             </h3>

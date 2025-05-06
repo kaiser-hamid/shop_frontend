@@ -9,7 +9,7 @@ export default function CategoriesPage() {
                 {/* Breadcrumb  */}
                 <Breadcrumb />
 
-                <div class="grid grid-cols-12 mt-8 mb-14">
+                <div class="grid grid-cols-12 pt-8 pb-14">
 
                     {/* Category Sidebar */}
                     <CategorySidebar />
