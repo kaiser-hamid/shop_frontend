@@ -1,14 +1,16 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function NavDesktop() {
     return (
-        <div className="hidden xl:flex items-center justify-between py-3.5">
+        <div className="hidden xl:flex items-center justify-between py-2.5">
 
             {/* Logo */}
             <div className="flex-grow mx-auto">
-                <a href="index.html" className="flex justify-center">
-                    <img src="/assets/images/logo/logo-dark.png" className="max-w-24" />
-                </a>
+                <Link href="/" className="flex justify-center items-center h-12">
+                    <Image height={100} width={138} alt="logo" src="/assets/images/logo/logo.jpg" className="h-12 overflow-hidden" />
+                </Link>
             </div>
 
             {/* Search */}
