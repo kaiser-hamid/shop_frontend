@@ -4,7 +4,7 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 
 export default function CategoriesPage() {
     return (
-        <div className="bg-[#f9f9f9]">
+        <div className="bg-zinc-50">
             <div className="container">
                 {/* Breadcrumb  */}
                 <Breadcrumb />

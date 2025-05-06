@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function NavDesktop() {
     return (
-        <div className="hidden xl:flex items-center justify-between py-2.5">
+        <div className="hidden xl:flex items-center justify-between py-2">
 
             {/* Logo */}
             <div className="flex-grow mx-auto">
