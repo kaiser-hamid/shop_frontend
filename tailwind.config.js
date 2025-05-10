@@ -56,6 +56,7 @@ module.exports = {
                     '900': '#8a0f32',
                     '950': '#4c0318',
                 },
+                'rr-black': '#192038',
                 'slate': {
                     '50': colors.slate[50],
                     '100': colors.slate[100],
