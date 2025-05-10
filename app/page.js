@@ -1,28 +1,20 @@
-import Image from "next/image";
-import PageLoader from "@/components/ui/PageLoader";
-import Header from "@/components/layouts/Header";
 import BannerSlider from "@/components/sections/home/BannerSlider";
-import WeeklySale from "@/components/sections/home/WeeklySale";
-import ShopBySelect from "@/components/sections/home/ShopBySelect";
-import ShortCategoryLeft from "@/components/sections/home/ShortCategoryLeft";
-import ShortCategoryRight from "@/components/sections/home/ShortCategoryRight";
-import BeforeAfterEffect from "@/components/sections/home/BeforeAfterEffect";
+import OfferBanner from "@/components/sections/home/OfferBanner";
+import DealsOfTheDay from "@/components/sections/home/DealsOfTheDay";
+import BrandsAndOffers from "@/components/sections/home/BrandsAndOffers";
 import ShopByCategory from "@/components/sections/home/ShopByCategory";
-import GiftBirthDay from "@/components/sections/home/GiftBirthDay";
-import InfoStatusBanner from "@/components/sections/home/InfoStatusBanner";
-import HeaderStart from "@/components/partials/HeaderStart";
+import ShopByConcern from "@/components/sections/home/ShopByConcern";
+import StatusBanner from "@/components/sections/home/StatusBanner";
 export default function Home() {
   return (
     <>
     <BannerSlider />
-    <ShopBySelect />
-    <ShortCategoryLeft />
-    <ShortCategoryRight />
-    <BeforeAfterEffect />
+    <OfferBanner />
+     <DealsOfTheDay />
+    <BrandsAndOffers />
     <ShopByCategory />
-    <GiftBirthDay />
-    <InfoStatusBanner />
-    
+     <ShopByConcern />
+    <StatusBanner />
     </>
   );
 }
