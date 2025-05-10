@@ -22,12 +22,14 @@ export default function RootLayout({ children }) {
         <meta content="Shajgoj" name="Shajgoj is the first online cosmetic and beauty products store in Bangladesh" />
         <meta content="Shajgoj" name="random author" />
       </head>
-       <body className="text-base font-body">
+       <body className="text-base font-montserrat">
         <ReduxProvider> 
           <Header />
           <CartEvent />
           <Cart />
-          {children}
+          <main className="pt-28">
+            {children}
+          </main>
           <Footer />
         </ReduxProvider>
       </body>

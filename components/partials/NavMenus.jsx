@@ -2,175 +2,102 @@ import Link from "next/link"
 
 export default function NavMenus() {
     return (
-        <div className="relative hidden xl:flex items-center xl:justify-between gap-9">
-            <ul className="hidden xl:flex items-center xl:justify-center gap-9">
+        <div className="mt-3 py-3 -mx-3 hidden lg:flex lg:flex-row lg:justify-between lg:mt-0 lg:mx-1 relative items-center">
+            <ul className="hidden flex-1 lg:flex items-center lg:justify-between">
                 <li className="group inline-block">
-                    <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
-                        Face
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
+                        Makeup
                     </a>
-                    <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
-                        <FaceMenus />
-                    </div>
-                </li>
-                <li className="group inline-block">
-                    <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
-                        Skin
-                    </a>
-                    <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
-                        <SubMenus />
-                    </div>
-                </li>
-                <li className="group inline-block">
-                    <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
-                        Beauty
-                    </a>
-                    <div className="bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
                 </li>
-                <li className="group inline-block relative">
-                    <a href="#" className="inline-flex items-center text-15 font-bold text-gray-950 uppercase rounded py-4 hover:text-primary-400 transition-all duration-500">
-                        Blog
+                <li className="group inline-block">
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
+                        Skin
                     </a>
-                    <div className="absolute left-0 bg-white shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-4 group-hover:translate-y-0 min-w-[180px]">
-                        <ul className="py-2">
-                            <li>
-                                <Link href="/blog" className="block px-4 py-2 hover:text-primary-400 transition-colors">Latest Posts</Link>
-                            </li>
-                            <li>
-                                <Link href="/blog/categories" className="block px-4 py-2 hover:text-primary-400 transition-colors">Categories</Link>
-                            </li>
-                            <li>
-                                <Link href="/blog/about" className="block px-4 py-2 hover:text-primary-400 transition-colors">About Blog</Link>
-                            </li>
-                        </ul>
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <BeautyMenus />
+                    </div>
+                </li>
+                <li className="group inline-block">
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
+                        Hair
+                    </a>
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <BeautyMenus />
+                    </div>
+                </li>
+                <li className="group inline-block">
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
+                        Personal Care
+                    </a>
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <BeautyMenus />
+                    </div>
+                </li>
+                <li className="group inline-block">
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
+                        Mom & Baby
+                    </a>
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <BeautyMenus />
+                    </div>
+                </li>
+                <li className="group inline-block">
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
+                        Fragrance
+                    </a>
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <BeautyMenus />
+                    </div>
+                </li>
+
+                {/* button nav link dropdown*/}
+                <li className="group inline-block p-1 pt-[3px] h-[32px] rounded-full text-white bg-blue-600 uppercase">
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs font-semibold  leading-5 md:my-0">
+                        Undergarments
+                    </a>
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <BeautyMenus />
+                    </div>
+                </li>
+
+                {/* button nav link */}
+                <li className="group inline-block p-1 pt-[3px] h-[32px] rounded-full text-white bg-lime-500 uppercase">
+                    <Link href="/eid-giga-glam" className="my-1 lg:px-1 xl:px-2 px-3 text-xs font-semibold leading-5 md:my-0">
+                        Eid giga glam
+                    </Link>
+                </li>
+
+                {/* button nav link dropdown */}
+                <li className="relative group inline-block p-1 pt-[3px] h-[32px] rounded-full text-white bg-purple-600 uppercase">
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs font-semibold  leading-5 md:my-0">
+                        Juwellerey
+                    </a>
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <SimpleMenus />
+                    </div>
+                </li>
+
+                {/* button nav link */}
+                <li className="group inline-block p-1 pt-[3px] h-[32px] rounded-full text-white bg-teal-600 uppercase">
+                    <Link href="/crealance-sale" className="my-1 lg:px-1 xl:px-2 px-3 text-xs font-semibold  leading-5 md:my-0">
+                        Crealance sale
+                    </Link>
+                </li>
+
+                {/* button nav link dropdown */}
+                <li className="group inline-block p-1 pt-[3px] h-[32px] rounded-full text-white bg-green-700/90 uppercase">
+                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs font-semibold  leading-5 md:my-0">
+                        Men
+                    </a>
+                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
+                        <BeautyMenus />
                     </div>
                 </li>
             </ul>
-        </div>
-    )
-}
-
-
-const SubMenus = () => {
-    return (
-        <div className="grid grid-cols-8 gap-6 max-h-[72vh] bg-white text-black p-4">
-            {/* BATH & SHOWER + HOME CARE */}
-            <div>
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Bath & Shower</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Scrubs & Exfoliants</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Shower Gels & Body Wash</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Soaps</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Talcum Powder</Link></li>
-                </ul>
-                <h5 className="font-bold uppercase mt-4 mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Home Care</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Candles</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Air Freshener</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Bathroom Essentials</Link></li>
-                </ul>
-            </div>
-            {/* TOOLS & ACCESSORIES + ORAL CARE */}
-            <div className="bg-gray-50">
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Tools & Accessories</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Loofahs & Sponges</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Travel Makeup Bag</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Hair straightener</Link></li>
-                </ul>
-                <h5 className="font-bold uppercase mt-4 mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Oral Care</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Toothpaste</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Tooth Brush</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Mouthwash</Link></li>
-                </ul>
-            </div>
-            {/* FEMININE HYGIENE */}
-            <div>
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Feminine Hygiene</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Shaving & Hair Removal</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Feminine Cleanser</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Sanitary Napkins</Link></li>
-                </ul>
-            </div>
-            {/* FEMININE CARE */}
-            <div className="bg-gray-50">
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Feminine Care</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Breast Cream</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Clothing & More</Link></li>
-                </ul>
-            </div>
-            {/* BODY */}
-            <div>
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Body</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Toiletries</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Lotions & Creams</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Talcum Powder</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Deodorants/Roll Ons</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Sunscreen</Link></li>
-                </ul>
-            </div>
-            {/* FACE */}
-            <div className="bg-gray-50">
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Face</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Facewash</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Moisturizer</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Face Wipes</Link></li>
-                </ul>
-            </div>
-            {/* HANDS & FEET */}
-            <div>
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Hands & Feet</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Feet Puff</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Foot Care</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Foot Set</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Foot Scrub</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Hand Sanitizer</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Hand Wash</Link></li>
-                </ul>
-            </div>
-            {/* WELLNESS */}
-            <div className="bg-gray-50">
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Wellness</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Weightloss</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Shop By Concern</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Face Mask</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Sexual Wellness</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Health & Fitness</Link></li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-// components/partials/FaceMenus.jsx
-const FaceMenus = () => {
-    return (
-        <div className="grid grid-cols-8 gap-6 max-h-[72vh] bg-white text-black p-4">
-            {/* Example categories for Face */}
-            <div>
-                <h5 className="font-bold uppercase mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Cleansers</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Face Wash</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Makeup Remover</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Micellar Water</Link></li>
-                </ul>
-                <h5 className="font-bold uppercase mt-4 mb-2"><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Toners</Link></h5>
-                <ul>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Hydrating Toner</Link></li>
-                    <li><Link href="/category/slug" className="hover:text-primary-400 transition-colors">Exfoliating Toner</Link></li>
-                </ul>
-            </div>
-            {/* Add more columns/categories as needed */}
-            {/* ... */}
-        </div>
+        </div >
     )
 }
 
@@ -190,124 +117,124 @@ const BeautyMenus = () => {
         <div className="grid grid-cols-8 gap-6 max-h-[72vh] bg-white text-black p-4">
             {/* MAKEUP */}
             <div>
-                <h5 className="font-bold uppercase mb-2">
-                    <Link href={`/category/${slugify('Makeup')}`} className="hover:text-primary-400 transition-colors">Makeup</Link>
+                <h5 className="block font-semibold text-[0.75rem] uppercase cursor-pointer text-black">
+                    <Link href={`/category/${slugify('Makeup')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Makeup</Link>
                 </h5>
                 <ul>
                     {['Foundation', 'Concealer', 'Blush', 'Highlighter', 'Primer'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
                 <h5 className="font-bold uppercase mt-4 mb-2">
-                    <Link href={`/category/${slugify('Eyes')}`} className="hover:text-primary-400 transition-colors">Eyes</Link>
+                    <Link href={`/category/${slugify('Eyes')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Eyes</Link>
                 </h5>
                 <ul>
                     {['Mascara', 'Eyeliner', 'Eyeshadow', 'Eyebrow Pencil'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
             </div>
             {/* LIPS */}
             <div className="bg-gray-50">
-                <h5 className="font-bold uppercase mb-2">
-                    <Link href={`/category/${slugify('Lips')}`} className="hover:text-primary-400 transition-colors">Lips</Link>
+                <h5 className="block font-semibold text-[0.75rem] uppercase cursor-pointer text-black">
+                    <Link href={`/category/${slugify('Lips')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Lips</Link>
                 </h5>
                 <ul>
                     {['Lipstick', 'Lip Gloss', 'Lip Balm', 'Lip Liner'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
                 <h5 className="font-bold uppercase mt-4 mb-2">
-                    <Link href={`/category/${slugify('Nails')}`} className="hover:text-primary-400 transition-colors">Nails</Link>
+                    <Link href={`/category/${slugify('Nails')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Nails</Link>
                 </h5>
                 <ul>
                     {['Nail Polish', 'Nail Care', 'Nail Art'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
             </div>
             {/* FRAGRANCES */}
             <div>
-                <h5 className="font-bold uppercase mb-2">
-                    <Link href={`/category/${slugify('Fragrances')}`} className="hover:text-primary-400 transition-colors">Fragrances</Link>
+                <h5 className="block font-semibold text-[0.75rem] uppercase cursor-pointer text-black">
+                    <Link href={`/category/${slugify('Fragrances')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Fragrances</Link>
                 </h5>
                 <ul>
                     {['Perfume', 'Body Mist', 'Deodorant'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
             </div>
             {/* HAIR CARE */}
             <div className="bg-gray-50">
-                <h5 className="font-bold uppercase mb-2">
-                    <Link href={`/category/${slugify('Hair Care')}`} className="hover:text-primary-400 transition-colors">Hair Care</Link>
+                <h5 className="block font-semibold text-[0.75rem] uppercase cursor-pointer text-black">
+                    <Link href={`/category/${slugify('Hair Care')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Hair Care</Link>
                 </h5>
                 <ul>
                     {['Shampoo', 'Conditioner', 'Hair Oil', 'Hair Mask', 'Hair Serum'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
             </div>
             {/* BEAUTY TOOLS */}
             <div>
-                <h5 className="font-bold uppercase mb-2">
-                    <Link href={`/category/${slugify('Beauty Tools')}`} className="hover:text-primary-400 transition-colors">Beauty Tools</Link>
+                <h5 className="block font-semibold text-[0.75rem] uppercase cursor-pointer text-black">
+                    <Link href={`/category/${slugify('Beauty Tools')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Beauty Tools</Link>
                 </h5>
                 <ul>
                     {['Brushes', 'Sponges', 'Eyelash Curler', 'Tweezers'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
             </div>
             {/* SKIN TREATMENTS */}
             <div className="bg-gray-50">
-                <h5 className="font-bold uppercase mb-2">
-                    <Link href={`/category/${slugify('Skin Treatments')}`} className="hover:text-primary-400 transition-colors">Skin Treatments</Link>
+                <h5 className="block font-semibold text-[0.75rem] uppercase cursor-pointer text-black">
+                    <Link href={`/category/${slugify('Skin Treatments')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Skin Treatments</Link>
                 </h5>
                 <ul>
                     {['Face Masks', 'Serums', 'Spot Treatments'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
             </div>
             {/* BATH & BODY */}
             <div>
-                <h5 className="font-bold uppercase mb-2">
-                    <Link href={`/category/${slugify('Bath & Body')}`} className="hover:text-primary-400 transition-colors">Bath & Body</Link>
+                <h5 className="block font-semibold text-[0.75rem] uppercase cursor-pointer text-black">
+                    <Link href={`/category/${slugify('Bath & Body')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Bath & Body</Link>
                 </h5>
                 <ul>
                     {['Body Scrub', 'Body Lotion', 'Body Oil'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
             </div>
             {/* GIFT SETS */}
             <div className="bg-gray-50">
-                <h5 className="font-bold uppercase mb-2">
-                    <Link href={`/category/${slugify('Gift Sets')}`} className="hover:text-primary-400 transition-colors">Gift Sets</Link>
+                <h5 className="block font-semibold text-[0.75rem] uppercase cursor-pointer text-black">
+                    <Link href={`/category/${slugify('Gift Sets')}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">Gift Sets</Link>
                 </h5>
                 <ul>
                     {['Makeup Kits', 'Skincare Sets', 'Fragrance Sets'].map(item => (
-                        <li key={item}>
-                            <Link href={`/category/${slugify(item)}`} className="hover:text-primary-400 transition-colors">{item}</Link>
+                        <li key={item} className="py-[0.1rem]">
+                            <Link href={`/category/${slugify(item)}`} className="block cursor-pointer text-gray-700 hover:text-primary-500">{item}</Link>
                         </li>
                     ))}
                 </ul>
@@ -317,3 +244,20 @@ const BeautyMenus = () => {
 }
 
 
+const SimpleMenus = () => {
+    return (
+        <div className="absolute left-0 bg-white text-[0.8rem] shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-4 group-hover:translate-y-0 min-w-[180px]">
+            <ul className="top-0 bg-white shadow px-4 py-3 h-full">
+                <li className="py-[0.1rem]">
+                    <Link href="/blog" className="block cursor-pointer text-gray-700 hover:text-primary-500 capitalize">Latest Posts</Link>
+                </li>
+                <li className="py-[0.1rem]">
+                    <Link href="/blog/categories" className="block cursor-pointer text-gray-700 hover:text-primary-500 capitalize">Categories</Link>
+                </li>
+                <li className="py-[0.1rem]">
+                    <Link href="/blog/about" className="block cursor-pointer text-gray-700 hover:text-primary-500 capitalize">About Blog</Link>
+                </li>
+            </ul>
+        </div>
+    )
+}

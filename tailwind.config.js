@@ -44,17 +44,17 @@ module.exports = {
             },
             colors: {
                 'primary': {
-                    '50': '#ffefef',
-                    '100': '#ffdbdb',
-                    '200': '#ffbdbe',
-                    '300': '#ff8f90',
-                    '400': '#ff5051',
-                    '500': '#d12442',
-                    '600': '#ff0002',
-                    '700': '#ff0033',
-                    '800': '#b80001',
-                    '900': '#800405',
-                    '950': '#540001',
+                    '50': '#fff2f6',
+                    '100': '#ffe5ed',
+                    '200': '#ffcbdb',
+                    '300': '#ffa1c0',
+                    '400': '#ff6b9c',
+                    '500': '#ff3d71',
+                    '600': '#eb1d51',
+                    '700': '#c60d3e',
+                    '800': '#a40d35',
+                    '900': '#8a0f32',
+                    '950': '#4c0318',
                 },
                 'slate': {
                     '50': colors.slate[50],
@@ -181,7 +181,10 @@ module.exports = {
               blink: {
                 '50%': { opacity: '0' },
               },
-          }
+          },
+          fontFamily: {
+            'montserrat': ['Montserrat', 'sans-serif'],
+          },
     },
   },
   plugins: [require('daisyui')],

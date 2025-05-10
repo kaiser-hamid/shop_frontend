@@ -14,7 +14,6 @@ import HeaderStart from "@/components/partials/HeaderStart";
 export default function Home() {
   return (
     <>
-    {/* <HeaderStart /> */}
     <BannerSlider />
     <ShopBySelect />
     <ShortCategoryLeft />
