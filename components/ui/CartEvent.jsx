@@ -1,4 +1,3 @@
-
 "use client";
 import { ShoppingBagIcon } from '@heroicons/react/24/solid'
 import { useDispatch } from 'react-redux';
@@ -7,16 +6,20 @@ import { toggleCartAction } from '../../store/cartSlice';
 export default function CartEvent() {
     const dispatch = useDispatch();
     return (
-        <button type='button' onClick={() => dispatch(toggleCartAction())} className="fixed top-1/2 right-0 -translate-y-1/2 z-50 flex flex-col items-center shadow-lg rounded-l-lg overflow-hidden select-none">
-            <div className="bg-black px-2 lg:px-4 py-2 flex flex-col items-center w-16 lg:w-20">
-                <ShoppingBagIcon className="h-5 w-5 lg:h-7 lg:w-7 text-white mb-1" />
-                <p className="flex flex-col lg:flex-row items-center lg:gap-1 text-xs lg:text-sm text-white tracking-wide">
+        <button
+            type="button"
+            onClick={() => dispatch(toggleCartAction())}
+            className="flex flex-col fixed right-0 top-[40%] border-t border-l border-b border-primary-500 rounded-tl-lg rounded-bl-lg text-white text-[0.6rem] md:text-xs z-20 cursor-pointer min-w-[60px] md:min-w-[70px] mini-cart-btn"
+        >
+            <div className="bg-rr-black rounded-tl-lg flex flex-col text-center px-1 pt-2 gap-1 pb-1 items-center w-full">
+                <ShoppingBagIcon className="w-5 h-5 md:w-7 md:h-7 text-xl md:text-2xl" />
+                <div className="flex flex-col md:flex-row text-sm items-center gap-0 md:gap-1">
                     <span>0</span>
-                    <span>Items</span>
-                </p>
+                    <span className="text-xs">ITEMS</span>
+                </div>
             </div>
-            <div className="bg-primary-500 px-0.5 lg:px-1 py-1 w-16 lg:w-20 flex items-center justify-center">
-                <span className="text-white font-semibold text-sm lg:text-lg">৳ 0</span>
+            <div className="bg-primary-500 rounded-bl-lg text-center text-sm px-1 py-1 w-full">
+                <span>৳ 0</span>
             </div>
         </button>
     )

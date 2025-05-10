@@ -20,21 +20,35 @@ export default function Cart() {
                 style={{ height: '100vh' }}
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Header panel */}
-                <div className="relative w-full bg-white h-14 flex items-center justify-center shrink-0 z-10">
-                    <button type="button" className="absolute top-0 left-0 p-3" onClick={() => dispatch(toggleCartAction())}>
-                        <XMarkIcon className="w-8 h-8 text-pink-500 hover:text-pink-600 transition-all duration-150" />
-                    </button>
-                    <h4 className="w-full lg:text-lg text-center font-medium tracking-widest">CART</h4>
-                </div>
-
-                {/* Content */}
                 <EmptyCart />
-                {/* <CartItemList /> */}
-
             </div>
         </div>
     )
+}
+
+const EmptyCart = () => {
+    const dispatch = useDispatch();
+    return (
+        <div className="z-40 fixed top-0 h-screen overflow-hidden right-0 no-scrollbar w-96 max-w-xs sm:max-w-sm bg-gray-200 transition-all duration-500 ease-in-out transform flex flex-col text-black">
+            <div className="flex p-4 items-center border-solid border-b-2 border-gray-200 bg-white relative">
+                <div className="absolute right-4 cursor-pointer text-sg-pink" onClick={() => dispatch(toggleCartAction())}>
+                    <svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24" height="30" width="30" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h4 className="mx-auto">CART</h4>
+            </div>
+            <div className="pt-10 flex flex-col items-center">
+                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" color="gray" style={{ color: 'gray' }} height="130" width="130" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 1a2 2 0 0 0-2 2v2H5V3a3 3 0 1 1 6 0v2h-1V3a2 2 0 0 0-2-2M5 5H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11v1.5a.5.5 0 0 1-1 0V5H6v1.5a.5.5 0 0 1-1 0z"></path>
+                </svg>
+                <h4 className="text-gray-500 mt-8">Your Shopping Bag is Empty</h4>
+                <button className="px-10 py-2 bg-black text-white mt-10 rounded-xl tracking-widest hover:bg-primary-500 uppercase" type="button" onClick={() => dispatch(toggleCartAction())}>
+                    START SHOPPING
+                </button>
+            </div>
+        </div>
+    );
 }
 
 const CartItemList = () => {
@@ -81,7 +95,7 @@ const CartItemList = () => {
     )
 }
 
-const EmptyCart = () => {
+const EmptyCartOld = () => {
     const dispatch = useDispatch();
     return (
         <div className="flex-1 w-full flex flex-col items-center justify-center p-2 lg:p-4">
