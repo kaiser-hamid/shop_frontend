@@ -11,8 +11,8 @@ export const CurrencyBDT = ({ className }) => {
            a15 15 0 0 1 30 0
            v70
            a25 25 0 1 0 25-25"
-                stroke="black" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-            <path d="M40 50 h40" stroke="black" stroke-width="12" stroke-linecap="round" />
+                stroke="black" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <path d="M40 50 h40" stroke="black" strokeWidth="12" strokeLinecap="round" />
         </svg>
     )
 }

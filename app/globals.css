@@ -109,3 +109,37 @@
 .custom-scroll::-webkit-scrollbar-button {
   display: none;        /* hides the arrow buttons */
 }
+
+.form-control {
+    width: 100%;
+    border-radius: .5rem;
+    border-width: 2px;
+    border-color: #eaeaea;
+    padding: .5rem .75rem;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    &::placeholder {
+        color: rgb(156 163 175);
+    }
+}
+
+.available-offers .offer-item .top-cut {
+    position: absolute;
+    background-color: #fff;
+    top: -12px;
+    left: 45px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ff3d71;
+    border-radius: 50%;
+}
+.available-offers .offer-item .bottom-cut {
+    position: absolute;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    bottom: -12px;
+    left: 45px;
+    border-radius: 50%;
+    border: 1px solid #ff3d71;
+}

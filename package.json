@@ -17,6 +17,7 @@
     "rc-slider": "^11.1.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-image-gallery": "^1.4.0",
     "react-instantsearch-dom": "^6.40.4",
     "react-redux": "^9.2.0",
     "react-slick": "^0.30.3",

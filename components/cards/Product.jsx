@@ -30,7 +30,7 @@ export default function Product({ product }) {
 const ProductImage = ({ source, alt }) => {
     return (
         <div className="overflow-hidden rounded-xl w-[40%] md:w-full p-2 md:p-0">
-            <div className="relative w-full h-full max-h-[280px]">
+            <div className="relative w-full h-[280px]">
                 <Image src={source} alt={alt} height={400} width={400} className="object-cover object-center hover:scale-110 transition-all ease-in-out duration-1000" />
             </div>
         </div>

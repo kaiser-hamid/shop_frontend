@@ -83,6 +83,7 @@ module.exports = {
                     '950': '#0f111d',
                 },
                 'rr-black': '#192038',
+                'rr-quartz': '#49454F',
                 'slate': {
                     '50': colors.slate[50],
                     '100': colors.slate[100],

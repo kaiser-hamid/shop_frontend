@@ -3,40 +3,44 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import RelatedProducts from "@/components/partials/RelatedProducts";
 import ProductGallery from "@/components/sections/product/ProductGallery";
 import ProductDetails from "@/components/sections/product/ProductDetails";
-import ProductInfoTab from "@/components/sections/product/ProductInfoTab";
+import RecentlyViewedProducts from "@/components/sections/product/RecentlyViewedProducts";
+import RecommendedProducts from "@/components/sections/product/RecommendedProducts";
+import ProductAdditionalInfo from "@/components/sections/product/ProductAdditionalInfo";
+import AvailableOffer from "@/components/sections/product/AvailableOffer";
+import FrequentlyBuy from "@/components/sections/product/FrequentlyBuy";
 
 
 export default function ProductPage() {
-
     return (
-        <section className="bg-zinc-50">
-            <div className="container">
-                {/* Breadcrumb  */}
-                <div className="pt-9 pb-5">
-                    <div>
-                        <ul className="flex items-center shrink-0 *:pr-6 *:relative *:before:font-remix *:before:absolute *:before:right-2 *:before:content-['/'] *:before:text-gray-300">
-                            <li className="last:pr-0 last:before:hidden"><a href="index.html" className="text-gray-800 hover:text-red-500">(Product 10) Sample - Clothing And Accessory Boutiques For Sale</a></li>
-                            <li className="last:pr-0 last:before:hidden"><a href="#!" className="text-gray-300">home</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <div className="container">
 
-                {/* content */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
-                    {/* Gallery */}
-                    <ProductGallery />
-                    {/* Product Info */}
-                    <ProductDetails />
-                </div>
+            {/* Product Details */}
+            <div>
+                {/* Product Gallery */}
+                <ProductGallery />
 
-                {/* Additional Information */}
-                <ProductInfoTab />
-
+                {/* Product Details */}
+                <ProductDetails />
             </div>
-            <RelatedProducts />
-        </section>
-    );
+
+            {/* Frequently buy & Avalable offer */}
+            <div className="flex flex-col-reverse lg:flex-row mt-8 justify-between gap-3">
+                <FrequentlyBuy />
+                <AvailableOffer />
+            </div>
+
+            {/* Product Additional Info Tab */}
+            <ProductAdditionalInfo />
+
+            {/* Recommended Products */}
+            <RecommendedProducts />
+
+            {/* Recently Viewed Products */}
+            <RecentlyViewedProducts />
+
+        </div>
+    )
+
 }
