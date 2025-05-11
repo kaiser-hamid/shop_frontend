@@ -297,13 +297,13 @@ const BrandFilter = () => {
             </div>
             <ul className="space-y-2 max-h-48 overflow-y-auto">
                 {filteredBrands.map((brand, idx) => (
-                    <li key={brand.id || idx} className="flex items-center justify-between text-slate-600 hover:text-primary-500 cursor-pointer">
+                    <li key={brand.id || idx} className={`flex items-center justify-between ${idx === 3 ? 'text-primary-500' : 'text-slate-600'} hover:text-primary-500 cursor-pointer`}>
                         <label className="flex items-center w-full">
                             <input
                                 type="checkbox"
-                                className="mr-2"
-                                checked={!!checked[brand.name]}
+                                className="mr-2 accent-primary-500 appearance-none h-4 w-4 rounded border border-accent-200 bg-white checked:bg-primary-500 checked:border-0"
                                 onChange={() => handleToggle(brand.name)}
+                                defaultChecked={idx === 3}
                             />
                             <span className="text-[0.9rem] flex-1">{brand.name}</span>
                             <span className="text-[0.8rem] text-accent-500 py-0.5 px-2.5 bg-secondary-100 rounded-full">{brand.count}</span>
