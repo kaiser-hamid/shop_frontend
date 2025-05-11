@@ -13,6 +13,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 288,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "SportK",
@@ -20,6 +21,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 285,
         oldPrice: 280,
+        size: "280ml"
     },
     {
         name: "NIKE",
@@ -27,6 +29,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 300,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "MenGlassess",
@@ -34,6 +37,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 300,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "SportK",
@@ -41,6 +45,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 275,
         oldPrice: 280,
+        size: "280ml"
     },
     {
         name: "Nike",
@@ -48,6 +53,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 300,
         oldPrice: 310,
+        size: "280ml"
     },
     {
         name: "UniTED Hoddie",
@@ -55,6 +61,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 79,
         oldPrice: 149,
+        size: "280ml"
     },
     {
         name: "Converse",
@@ -62,6 +69,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 245,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "RoutinX",
@@ -69,6 +77,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 300,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "Fantasy Jeans",
@@ -76,6 +85,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 289,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "9 Tails",
@@ -83,6 +93,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 97,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "Men Jeans",
@@ -90,6 +101,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 211,
         oldPrice: 280,
+        size: "280ml"
     },
     {
         name: "Brioni",
@@ -97,6 +109,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 211,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "Burberry",
@@ -104,6 +117,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 211,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "Carhart",
@@ -111,6 +125,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 211,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "New Generation",
@@ -118,6 +133,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 211,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "Saint Laurent",
@@ -125,6 +141,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 211,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "Valentino",
@@ -132,6 +149,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 211,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "Yjame",
@@ -139,6 +157,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 211,
         oldPrice: null,
+        size: "280ml"
     },
     {
         name: "T-Shirt",
@@ -146,6 +165,7 @@ const products = [
         link: "card-product-detail-1.html",
         price: 99,
         oldPrice: 120,
+        size: "280ml"
     },
 ];
 
@@ -160,52 +180,65 @@ export default function CategoryContent() {
     const [categoryOpen, setCategoryOpen] = useState(true);
 
     return (
-        <div className="col-span-12 lg:col-span-9">
-            {/* Search Input */}
-            <div className="w-full mb-6 relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-4 pr-2 pointer-events-none">
-                    <MagnifyingGlassIcon className="h-5 w-5 text-zinc-400" />
-                </span>
+        <div className="w-full md:w-[75%] mt-4">
+            {/* Search Bar */}
+            <SearchBar />
+
+            {/* Sort By */}
+            <SortBy />
+
+            {/* Products */}
+            <Products />
+        </div>
+    );
+}
+
+const SearchBar = () => {
+    return (
+        <div className="flex row mb-3">
+            <div className="relative w-full mb-3 mt-2">
                 <input
-                    type="text"
-                    placeholder="Search products..."
-                    className="w-full pl-12 pr-4 py-2 rounded-xl border border-zinc-300 bg-zinc-100 focus:bg-white outline-none text-base transition-all duration-150 placeholder:text-zinc-400"
+                    type="search"
+                    className="w-full pl-8 pr-2 py-1.5 text-sm rounded-md focus:outline-none ring-1 ring-accent-100 focus:ring-primary-500 placeholder:text-accent-300"
+                    onChange={() => { }}
+                    placeholder="Search brands"
                 />
-            </div>
-            <div className="flex justify-between flex-row-reverse lg:flex-row">
-                <div className="w-full">
-                    <div className="w-full">
-                        <div className="flex justify-end items-center z-50 bg-zinc-50 py-1.5 w-full md:static sticky top-0">
-
-                            {/* Sort By Dropdown */}
-                            <div className="flex gap-4 items-center order-2">
-                                <span className="hidden lg:inline">Sort By</span>
-                                <div className="inline-block relative">
-                                    <select className="text-15 font-medium p-2 border bg-white cursor-pointer outline-none">
-                                        <option value="">Default sorting</option>
-                                        <option value="low-to-high">Price: Low to High</option>
-                                        <option value="high-to-low">Price: High to Low</option>
-                                        <option value="old-to-new">Old to New</option>
-                                        <option value="new-to-old">New to Old</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Product Grid */}
-                        <div className="w-full flex flex-col pt-8 mt-5 border-t border-[#dedede]">
-                            {/* Tabs logic if needed */}
-                            <div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-6">
-                                    {products.map((product, idx) => (
-                                        <Product key={idx} product={product} />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-accent-500">
+                        <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clipRule="evenodd" />
+                    </svg>
                 </div>
             </div>
         </div>
     );
+}
+
+const SortBy = () => {
+    return (
+        <div className="flex flex-col md:flex-row justify-start items-start md:items-center md:justify-end mb-5">
+            <div className="flex items-center justify-between gap-2">
+                <div className="w-">
+                    <select className="w-full px-3 py-2 text-sm rounded focus:outline-none ring-1 ring-accent-100 placeholder:text-accent-300">
+                        <option value="1">Default sorting</option>
+                        <option value="2">Price: Low to High</option>
+                        <option value="3">Price: High to Low</option>
+                        <option value="4">Product: Old First</option>
+                        <option value="5">Product: New First</option>
+                        <option value="6">Popularity: Most Popular First</option>
+                        <option value="7">Popularity: Less Popular First</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const Products = () => {
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {products.map((product, index) => (
+                <Product key={index} product={product} />
+            ))}
+        </div>
+    )
 }

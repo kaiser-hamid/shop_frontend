@@ -1,15 +1,14 @@
 import CategorySidebar from "@/components/partials/CategorySidebar";
 import CategoryContent from "@/components/sections/category/CategoryContent";
-import Breadcrumb from "@/components/ui/Breadcrumb";
-
+import CategoryBanner from "@/components/sections/banners/CateoryBanner";
 export default function CategoriesPage() {
     return (
-        <div className="bg-zinc-50">
-            <div className="container">
-                {/* Breadcrumb  */}
-                <Breadcrumb />
+        <div className="">
+            {/* Banner  */}
+            <CategoryBanner />
+            <div className="container pb-8">
 
-                <div class="grid grid-cols-12 pt-8 pb-14">
+                <div class="flex flex-col md:flex-row md:space-x-4">
 
                     {/* Category Sidebar */}
                     <CategorySidebar />
