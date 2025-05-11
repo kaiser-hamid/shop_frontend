@@ -10,10 +10,10 @@ import { MagnifyingGlassIcon, ShoppingBagIcon } from "@heroicons/react/24/outlin
 import RoundedButton from "../ui/buttons/RoundedButton";
 import Image from "next/image";
 import React, { useRef } from "react";
-
+import PageOverlay from "./PageOverlay";
 export default function Header() {
     return (
-        <div className="fixed w-full top-0 z-10 bg-white nav-box">
+        <div className="fixed w-full top-0 z-10 bg-white nav-box z-30">
             <nav className="container z-30">
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center relative py-2">
                     {/* for mobile | hidden on desktop */}
@@ -38,6 +38,7 @@ export default function Header() {
                                         <div className="text-[0.8rem] bg-transparent absolute left-0 right-0 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0 pt-4">
                                             <BrandDropdown />
                                         </div>
+                                        <PageOverlay />
                                     </div>
                                 </div>
                             </div>

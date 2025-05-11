@@ -1,5 +1,5 @@
 import Link from "next/link"
-
+import PageOverlay from "../layouts/PageOverlay"
 export default function NavMenus() {
     return (
         <div className="mt-3 py-3 -mx-3 hidden lg:flex lg:flex-row lg:justify-between lg:mt-0 lg:mx-1 relative items-center">
@@ -11,6 +11,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
+                    <PageOverlay />
                 </li>
                 <li className="group inline-block">
                     <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
@@ -19,6 +20,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
+                    <PageOverlay />
                 </li>
                 <li className="group inline-block">
                     <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
@@ -27,6 +29,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
+                    <PageOverlay />
                 </li>
                 <li className="group inline-block">
                     <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
@@ -35,6 +38,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
+                    <PageOverlay />
                 </li>
                 <li className="group inline-block">
                     <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
@@ -43,6 +47,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
+                    <PageOverlay />
                 </li>
                 <li className="group inline-block">
                     <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs group-hover:text-primary-500 font-medium  leading-5 md:my-0">
@@ -51,6 +56,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
+                    <PageOverlay />
                 </li>
 
                 {/* button nav link dropdown*/}
@@ -61,6 +67,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
+                    <PageOverlay />
                 </li>
 
                 {/* button nav link */}
@@ -78,6 +85,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <SimpleMenus />
                     </div>
+                    <PageOverlay />
                 </li>
 
                 {/* button nav link */}
@@ -95,6 +103,7 @@ export default function NavMenus() {
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
                     </div>
+                    <PageOverlay />
                 </li>
             </ul>
         </div >
