@@ -1,163 +1,206 @@
+"use client"
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Checkout() {
     return (
-        <section className="bg-zinc-50">
-            <div className="container py-4 lg:py-8">
-                <div className="p-2 lg:p-4 bg-blue-500/20 rounded-sm">
-                    <p>
-                        Returning customer? <Link href="#" className="text-primary-500">Click here to login</Link>
-                    </p>
-                </div>
-                <h4 className="text-lg font-medium uppercase text-zinc-800 my-2.5 lg:mb-4 lg:mt-6">Billing & Shipping</h4>
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 divide-x divide-zinc-200 mb-8 lg:mb-12">
-                    <CheckoutForm />
-                    <OrderSummary />
-                </div>
+        <div className="container mb-10">
+            <div className="flex gap-x-3 bg-[#d9edf7] px-4 py-2 my-4 border border-[#bce8f1]">
+                <h4>Returning Customer ?</h4>
+                <Link className="text-primary-500" href="/login?from=/checkout">
+                    Click here to login
+                </Link>
             </div>
-        </section>
+            <h2 className="text-lg font-medium py-4">BILLING &amp; SHIPPING</h2>
+            <div className="flex flex-wrap md:flex-nowrap">
+                <CheckoutForm />
+                <OrderSummary />
+            </div>
+        </div>
     )
 }
 
 const CheckoutForm = () => {
     return (
-        <div className="col-span-1 lg:col-span-3">
-            <div className="flex flex-col gap-y-4">
-                {/* Form item group */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
-                    {/* Form item */}
-                    <div>
-                        <input type="text" placeholder="Name" className="py-2.5 px-3 block w-full border border-[#c7c7c7] bg-white text-base placeholder:text-gray-500 focus:border-zinc-500 focus:ring-0 focus:outline-0 ring-0" />
-                    </div>
-                    {/* Form item */}
-                    <div>
-                        <input type="text" placeholder="Phone" className="py-2.5 px-3 block w-full border border-[#c7c7c7] bg-white text-base placeholder:text-gray-500 focus:border-zinc-500 focus:ring-0 focus:outline-0 ring-0" />
-                    </div>
+        <div className="w-full md:w-3/5 md:pr-8 md:border-r-2 md:border-gray-300">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                    <input type="text" placeholder="Name" className="form-control" name="customer_name" />
                 </div>
-
-                {/* Form item group */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
-                    {/* Form item */}
-                    <div>
-                        <select name="country" id="country" className="py-2.5 px-3 block w-full border border-[#c7c7c7] bg-white text-base placeholder:text-gray-500 focus:border-zinc-500 focus:ring-0 focus:outline-0 ring-0">
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Khulna">Khulna</option>
-                            <option value="Rajshahi">Rajshahi</option>
-                            <option value="Chittagong">Chittagong</option>
-                            <option value="Sylhet">Sylhet</option>
-                            <option value="Rangpur">Rangpur</option>
-                            <option value="Barishal">Barishal</option>
-                        </select>
-                    </div>
-                    {/* Form item */}
-                    <div>
-                        <select name="country" id="country" className="py-2.5 px-3 block w-full border border-[#c7c7c7] bg-white text-base placeholder:text-gray-500 focus:border-zinc-500 focus:ring-0 focus:outline-0 ring-0">
-                            <option value="Mirpur">Mirpur</option>
-                            <option value="Dhanmondi">Dhanmondi</option>
-                            <option value="Gulshan">Gulshan</option>
-                            <option value="Banani">Banani</option>
-                            <option value="Uttara">Uttara</option>
-                            <option value="Mohammadpur">Mohammadpur</option>
-                            <option value="Motijheel">Motijheel</option>
-                        </select>
-                    </div>
+                <div>
+                    <input type="text" placeholder="Phone" className="form-control" name="customer_phone" />
                 </div>
-
-                {/* Form item group */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
-                    {/* Form item */}
-                    <div>
-                        <input type="text" placeholder="Address" className="py-2.5 px-3 block w-full border border-[#c7c7c7] bg-white text-base placeholder:text-gray-500 focus:border-zinc-500 focus:ring-0 focus:outline-0 ring-0" />
-                    </div>
-                    {/* Form item */}
-                    <div>
-                        <input type="text" placeholder="Email (optional)" className="py-2.5 px-3 block w-full border border-[#c7c7c7] bg-white text-base placeholder:text-gray-500 focus:border-zinc-500 focus:ring-0 focus:outline-0 ring-0" />
-                    </div>
+                <div>
+                    <select className="form-control bg-white" name="customer_city">
+                        <option value="">Select City</option>
+                        <option>Bagerhat</option>
+                        <option>Bandarban</option>
+                        <option>Barguna</option>
+                        <option>Barisal</option>
+                        <option>Bhola</option>
+                        <option>Bogura</option>
+                        <option>Brahmanbaria</option>
+                        <option>Chandpur</option>
+                        <option>Chapainawabganj</option>
+                        <option>Chattogram</option>
+                        <option>Chuadanga</option>
+                        <option>Comilla</option>
+                        <option>Coxsbazar</option>
+                        <option>Dhaka</option>
+                        <option>Dinajpur</option>
+                        <option>Faridpur</option>
+                        <option>Feni</option>
+                        <option>Gaibandha</option>
+                        <option>Gazipur</option>
+                        <option>Gopalganj</option>
+                        <option>Habiganj</option>
+                        <option>Jamalpur</option>
+                        <option>Jashore</option>
+                        <option>Jhalakathi</option>
+                        <option>Jhenaidah</option>
+                        <option>Joypurhat</option>
+                        <option>Khagrachhari</option>
+                        <option>Khulna</option>
+                        <option>Kishoreganj</option>
+                        <option>Kurigram</option>
+                        <option>Kushtia</option>
+                        <option>Lakshmipur</option>
+                        <option>Lalmonirhat</option>
+                        <option>Madaripur</option>
+                        <option>Magura</option>
+                        <option>Manikganj</option>
+                        <option>Meherpur</option>
+                        <option>Moulvibazar</option>
+                        <option>Munshiganj</option>
+                        <option>Mymensingh</option>
+                        <option>Naogaon</option>
+                        <option>Narail</option>
+                        <option>Narayanganj</option>
+                        <option>Narsingdi</option>
+                        <option>Natore</option>
+                        <option>Netrokona</option>
+                        <option>Nilphamari</option>
+                        <option>Noakhali</option>
+                        <option>Pabna</option>
+                        <option>Panchagarh</option>
+                        <option>Patuakhali</option>
+                        <option>Pirojpur</option>
+                        <option>Rajbari</option>
+                        <option>Rajshahi</option>
+                        <option>Rangamati</option>
+                        <option>Rangpur</option>
+                        <option>Satkhira</option>
+                        <option>Shariatpur</option>
+                        <option>Sherpur</option>
+                        <option>Sirajganj</option>
+                        <option>Sunamganj</option>
+                        <option>Sylhet</option>
+                        <option>Tangail</option>
+                        <option>Thakurgaon</option>
+                    </select>
                 </div>
-
-                {/* Form item group */}
-                <div className="grid grid-cols-1 gap-2 lg:gap-4">
-                    {/* Form item */}
-                    <div>
-                        <textarea name="message" placeholder="Order notes (optional)" className="py-2.5 px-3 block w-full border border-[#c7c7c7] bg-white text-base placeholder:text-gray-500 focus:border-zinc-500 focus:ring-0 focus:outline-0 ring-0" />
-                    </div>
+                <div>
+                    <select className="form-control bg-white" name="customer_town">
+                        <option value="">Select Area</option>
+                    </select>
                 </div>
+                <div>
+                    <input type="text" placeholder="Address" className="form-control" name="customer_address" />
+                </div>
+                <div>
+                    <input type="text" placeholder="Email (optional)" className="form-control" name="customer_email" />
+                </div>
+            </div>
+            <div className="mt-4">
+                <textarea
+                    placeholder="Order Note (optional)"
+                    className="form-control"
+                    name="customer_note"
+                    spellCheck={false}
+                    autoComplete="off"
+                />
             </div>
         </div>
     )
 }
 
 const OrderSummary = () => {
+    const [showCoupon, setShowCoupon] = useState(false);
+    const [couponCode, setCouponCode] = useState('');
     return (
-        <div className="col-span-1 lg:col-span-2 lg:pl-6">
-            <div className="flex flex-col gap-y-4">
-                {/* Coupon */}
-                <div>
-                    <button type="button" className="text-lg text-primary-500">Have Coupon / Voucher?</button>
-                    <div className="hidden">
-                        <input type="text" placeholder="Phone" className="py-2.5 px-3 block w-full border border-[#c7c7c7] bg-white text-base placeholder:text-gray-500 focus:border-zinc-500 focus:ring-0 focus:outline-0 ring-0" />
+        <div className="w-full md:w-2/5 md:ml-3">
+            <div className="md:ml-4 mb-4">
+                <button type="button" onClick={() => setShowCoupon(!showCoupon)} className="text-primary-500 text-lg">
+                    Have Coupon / Voucher?
+                </button>
+                {showCoupon && (
+                    <div className="flex flex-col">
+                        <div className={`flex justify-between mt-2`}>
+                            <div className="w-[75%]">
+                                <input
+                                    type="text"
+                                    placeholder="Coupon Code"
+                                    className="form-control"
+                                    name="couponCode"
+                                />
+                            </div>
+                            <button
+                                className="bg-primary-500 w-1/5 text-white rounded-xl h-11 hover:bg-primary-600 transition-all duration-300"
+                                type="button"
+                            >
+                                Apply
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
 
-                {/* Shipping method */}
-                <div>
-                    <h4 className="text-lg font-medium uppercase text-zinc-800 mb-2.5 lg:mb-4">Choose Shipping Method</h4>
-                    <div className="flex flex-col gap-y-1">
-                        {/* Items */}
-                        <div className="flex items-center justify-between gap-x-2">
-                            <label className="flex items-center gap-x-1">
-                                <input type="radio" name="shipping" />{" "}
-                                <span> Outside Dhaka</span>
+            </div>
+            <div className="border-b-2 border-gray-300 pb-4 md:ml-4">
+                <h2 className="mb-3 text-lg font-medium">Choose Shipping Method</h2>
+                <div className="flex flex-col">
+                    <div>
+                        <div className="flex justify-between">
+                            <label className="w-fit">
+                                <input type="radio" name="shipping_zone" className="mr-2 accent-primary-500" value="outside_dhaka" defaultChecked />
+                                Delivery Outside Dhaka
                             </label>
-                            <p>৳ 99.00</p>
+                            <span>৳ 99.00</span>
                         </div>
-
-                        {/* Items */}
-                        <div className="flex items-center justify-between gap-x-2">
-                            <label className="flex items-center gap-x-1">
-                                <input type="radio" name="shipping" />{" "}
-                                <span> Delivery Inside Dhaka</span>
+                        <div className="flex justify-between">
+                            <label className="w-fit">
+                                <input type="radio" name="shipping_zone" className="mr-2 accent-primary-500" value="inside_dhaka" />
+                                Delivery Inside Dhaka
                             </label>
-                            <p>৳ 66.00</p>
+                            <span>৳ 66.00</span>
                         </div>
                     </div>
-                    <div className="flex flex-col divide-y divide-zinc-200 my-2.5 lg:my-4">
-                        <div className="flex items-center justify-between gap-x-2 py-3">
-                            <p className="text-base font-medium text-zinc-800">Sub Total</p>
-                            <p className="text-base font-medium text-zinc-800">৳ 425.00</p>
-                        </div>
+                </div>
+                <div className="flex justify-between mt-8">
+                    <span>Total MRP</span>
+                    <span>৳ 110.00</span>
+                </div>
+            </div>
+            <div className="flex justify-between mt-3 md:pl-4">
+                <span className="text-lg font-medium">Total Amount</span>
+                <span className="text-primary-500 text-lg font-semibold">৳ 209.00</span>
+            </div>
+            <div className="md:pl-4">
+                <h2 className="mb-3 mt-5 font-medium text-lg">Choose Payment Method</h2>
+                <div className="flex flex-col">
+                    <label className="w-fit">
+                        <input type="radio" name="payment_method" className="mr-2 accent-primary-500" value="cod" defaultChecked />
+                        Cash on delivery
+                    </label>
+                    <label className="w-fit cursor-not-allowed text-gray-300">
+                        <input type="radio" disabled={true} name="payment_method" className="mr-2 accent-primary-500" value="pther" />
+                        Other methods
+                    </label>
 
-                        <div className="flex items-center justify-between gap-x-2 py-3">
-                            <p className="text-lg font-medium text-zinc-800">Total Amount</p>
-                            <p className="text-lg font-medium text-primary-500">৳ 154.00</p>
-                        </div>
-                    </div>
                 </div>
-                {/* Payment method */}
-                <div>
-                    <h4 className="text-lg font-medium uppercase text-zinc-800 my-2.5 lg:mb-4 lg:mt-6">Choose Shipping Method</h4>
-                    <div className="flex flex-col gap-y-1">
-                        <ul>
-                            <li>
-                                <label className="flex items-center gap-x-1">
-                                    <input type="radio" name="method" />
-                                    <span>Cash on delivery</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label className="flex items-center gap-x-1">
-                                    <input type="radio" name="method" />
-                                    <span>bKash</span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Action */}
-                <div>
-                    <button type="button" className="w-full py-2 px-8 mt-3 inline-block text-center text-15 font-bold border-2 border-primary-500 text-primary-500 bg-transparent hover:text-white hover:bg-primary-500 transition-all duration-150">Place Order</button>
-                </div>
+                <button className="bg-primary-500 p-3 w-full text-white rounded-xl mt-5 uppercase hover:bg-primary-600 transition-all duration-300" type="button">
+                    Place Order
+                </button>
             </div>
         </div>
     )
