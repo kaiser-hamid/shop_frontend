@@ -143,3 +143,7 @@
     border-radius: 50%;
     border: 1px solid #ff3d71;
 }
+
+.nav-box {
+    box-shadow: 0 0 3px 0 rgb(0 0 0/12%);
+}
