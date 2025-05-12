@@ -10,6 +10,7 @@ import RecommendedProducts from "@/components/sections/product/RecommendedProduc
 import ProductAdditionalInfo from "@/components/sections/product/ProductAdditionalInfo";
 import AvailableOffer from "@/components/sections/product/AvailableOffer";
 import FrequentlyBuy from "@/components/sections/product/FrequentlyBuy";
+import ShareGroup from "@/components/partials/ShareGroup";
 
 
 export default function ProductPage() {
@@ -17,9 +18,12 @@ export default function ProductPage() {
         <div className="container">
 
             {/* Product Details */}
-            <div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-8">
                 {/* Product Gallery */}
-                <ProductGallery />
+                <div className="product-detail-col image-comp mt-0 md:mt-[2rem]">
+                    <ProductGallery />
+                    <ShareGroup />
+                </div>
 
                 {/* Product Details */}
                 <ProductDetails />
