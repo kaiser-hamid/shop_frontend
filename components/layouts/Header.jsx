@@ -25,8 +25,8 @@ export default function Header() {
 
                             {/* Logo */}
                             <Link href="/" className="flex">
-                                {/* <img src="/assets/images/logo/logo.png" alt="logo" className="w-24" /> */}
-                                <span className="text-xl lg:text-[32px] font-bold uppercase tracking-wider">Ruprong</span>
+                                <img src="/assets/images/logo/ruprong-logo.jpg" alt="logo" className="w-24" />
+                                {/* <span className="text-xl lg:text-[32px] font-bold uppercase tracking-wider">Ruprong</span> */}
                             </Link>
 
                             {/* brand */}
