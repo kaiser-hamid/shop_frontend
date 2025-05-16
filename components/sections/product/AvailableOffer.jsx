@@ -10,7 +10,7 @@ import ProductOfferSlider from '@/components/cards/ProductOfferSlider';
 
 export default function AvailableOffer() {
     return (
-        <div className="relative w-full lg:w-2/5 available-offers ml-auto">
+        <div className="relative w-full lg:w-full available-offers ml-auto">
             <h2 className="text-md font-semibold text-rr-quartz my-4 mb-8">Available Offers</h2>
             <OfferSlider />
         </div>
@@ -63,40 +63,32 @@ const OfferSlider = () => {
         className: "available-offers-slider",
         centerMode: true,
         centerPadding: "40px",
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        nextArrow: <ArrowButtonRight />,
+        prevArrow: <ArrowButtonLeft />,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
+                    slidesToShow: 2,
                     centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
+                    centerPadding: '25px',
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
-                    centerMode: true,
-                    centerPadding: '25px',
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
+                    slidesToShow: 1,
                     centerMode: true,
                     centerPadding: '20px',
-                    slidesToShow: 1
                 }
             }
-        ],
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        nextArrow: <ArrowButtonRight />,
-        prevArrow: <ArrowButtonLeft />,
+        ]
     };
     return (
         <>

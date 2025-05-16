@@ -31,7 +31,7 @@ export default function ProductPage() {
 
             {/* Frequently buy & Avalable offer */}
             <div className="flex flex-col-reverse lg:flex-row mt-8 justify-between gap-3">
-                <FrequentlyBuy />
+                {/* <FrequentlyBuy /> */}
                 <AvailableOffer />
             </div>
 

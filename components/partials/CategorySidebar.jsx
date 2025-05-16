@@ -146,7 +146,7 @@ const PriceFilter = ({ price, setPrice }) => {
                 step={10}
                 defaultValue={[price.minPrice, price.maxPrice]}
                 onChange={(values) => setPrice({ minPrice: values[0], maxPrice: values[1] })}
-                trackStyle={{ backgroundColor: "#e5e5e5", height: '8px', backgroundColor: "#ff3d71" }}
+                trackStyle={{ backgroundColor: "#c72116", height: '8px' }}
                 handleStyle={{ backgroundColor: "#FFF", opacity: 1, marginTop: '-5px', borderColor: "#e5e5e5", borderWidth: '2px', width: '20px', height: '20px', cursor: 'pointer' }}
                 railStyle={{ backgroundColor: "#d8d8d8", height: '8px', borderRadius: 0 }}
                 className="price-slider"

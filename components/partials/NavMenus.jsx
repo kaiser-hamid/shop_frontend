@@ -59,10 +59,10 @@ export default function NavMenus() {
                     <PageOverlay />
                 </li>
 
-                {/* button nav link dropdown*/}
-                <li className="group inline-block p-1 pt-[3px] h-[32px] rounded-full text-white bg-blue-600 uppercase">
+                {/* button nav link dropdown */}
+                <li className="group inline-block p-1 pt-[3px] h-[32px] rounded-full text-white bg-green-700/90 uppercase">
                     <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs font-semibold  leading-5 md:my-0">
-                        Undergarments
+                        Men
                     </a>
                     <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
                         <BeautyMenus />
@@ -93,17 +93,6 @@ export default function NavMenus() {
                     <Link href="/crealance-sale" className="my-1 lg:px-1 xl:px-2 px-3 text-xs font-semibold  leading-5 md:my-0">
                         Crealance sale
                     </Link>
-                </li>
-
-                {/* button nav link dropdown */}
-                <li className="group inline-block p-1 pt-[3px] h-[32px] rounded-full text-white bg-green-700/90 uppercase">
-                    <a href="#" className="my-1 lg:px-1 xl:px-2 px-3 text-xs font-semibold  leading-5 md:my-0">
-                        Men
-                    </a>
-                    <div className="text-[0.8rem] bg-teal-500 absolute left-0 right-0 bg-red-200 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0">
-                        <BeautyMenus />
-                    </div>
-                    <PageOverlay />
                 </li>
             </ul>
         </div >

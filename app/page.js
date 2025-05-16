@@ -13,7 +13,7 @@ export default function Home() {
      <DealsOfTheDay />
     <BrandsAndOffers />
     <ShopByCategory />
-     <ShopByConcern />
+     {/* <ShopByConcern /> */}
     <StatusBanner />
     </>
   );

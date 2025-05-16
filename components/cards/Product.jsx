@@ -85,7 +85,7 @@ const ActionButton = () => {
     return (
         <button
             type="button"
-            className="p-3 bg-purple-800 text-white w-full text-center rounded-b-xl uppercase hover:bg-primary-500 hover:transition hover:ease-in hover:duration-300 font-semibold"
+            className="p-3 bg-primary-500 text-white w-full text-center rounded-b-xl uppercase hover:bg-rr-black hover:transition hover:ease-in hover:duration-300 font-semibold"
         >
             ADD TO CART
         </button>

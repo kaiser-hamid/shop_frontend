@@ -121,7 +121,7 @@ export default function Footer() {
                             <Link href="/categories" className="hover:text-primary-500 p-3">REFUND & RETURN POLICY</Link>
                             <Link href="/categories" className="hover:text-primary-500 p-3">FAQS</Link>
                         </div>
-                        <p className="text-white text-center text-sm">Copyright © 2025 Ruprong Limited. All Right Reserved</p>
+                        <p className="text-white text-center text-sm">Copyright © 2025 RuprongBD Limited. All Right Reserved</p>
                     </div>
                 </div>
             </div>

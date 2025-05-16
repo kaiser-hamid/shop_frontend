@@ -12,10 +12,10 @@ export default function ProductDetails() {
             </div>
             <ProductPriceLine />
 
-            <div className="flex flex-col mb-4">
+            {/* <div className="flex flex-col mb-4">
                 <DownloadAppBanner />
                 <SellerInfo />
-            </div>
+            </div> */}
 
             <CartAction />
 
