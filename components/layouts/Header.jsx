@@ -20,7 +20,7 @@ export default function Header() {
 
                     {/* Logo & brands */}
                     <div className="flex lg:justify-between items-center py-3 lg:py-0">
-                        <div className="flex items-center mx-auto w-1/3 lg:w-full">
+                        <div className="flex items-center mx-auto w-full">
                             {/* Hidden on desktop */}
 
                             {/* Logo */}
@@ -29,12 +29,39 @@ export default function Header() {
                                 {/* <span className="text-xl lg:text-[32px] font-bold uppercase tracking-wider">Ruprong</span> */}
                             </Link>
 
+                            {/* Search section */}
+                            <div className="w-[300px] lg:w-[360px] mx-4 lg:mx-8 flex items-center border-2 mb-3 md:mb-0 border-primary-500 text-gray-700 bg-zinc-100 rounded-3xl placeholder-gray-500 w-full lg:w-1/3 relative">
+                                <MagnifyingGlassIcon className="w-6 h-6 ml-3" />
+                                <input
+                                    type="text"
+                                    className="w-full px-2 py-2 leading-tight text-sm focus:outline-none bg-zinc-100 rounded-3x placeholder:text-slate-400 placeholder:font-medium rounded-r-3xl"
+                                    placeholder="Search for products, brands..."
+                                />
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    {/* Search section */}
+                    {/*  <div className="flex items-center border-2 mb-3 md:mb-0 border-primary-500 text-gray-700 bg-zinc-100 rounded-3xl placeholder-gray-500 w-full lg:w-1/3 relative">
+                        <MagnifyingGlassIcon className="w-6 h-6 ml-3" />
+                        <input
+                            type="text"
+                            className="w-full px-2 py-2 leading-tight text-sm focus:outline-none bg-zinc-100 rounded-3x placeholder:text-slate-400 placeholder:font-medium rounded-r-3xl"
+                            placeholder="Search for products, brands..."
+                        />
+                    </div> */}
+
+                    {/* cart section */}
+                    <div className="lg:flex items-center hidden">
+                        <div className="flex items-center gap-x-4 -mx-1 md:mx-0 text-xs">
                             {/* brand */}
                             <div className="lg:flex items-center hidden">
                                 <div className="flex flex-col mt-2 lg:flex-row lg:mt-0 lg:mx-1">
                                     {/* Brand dropdown */}
                                     <div className="group">
-                                        <a href="#" className="my-1 text-sm font-semibold uppercase leading-5 md:mx-4 md:my-0 px-4">Brands</a>
+                                        <a href="#" className="group h-[38px] font-bold bg-teal-600 text-white py-3 px-3 xl:px-4 rounded-full flex items-center uppercase hover:bg-opacity-90 transition-all duration-150">Brands</a>
                                         <div className="text-[0.8rem] bg-transparent absolute left-0 right-0 shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 transform translate-y-8 group-hover:translate-y-0 pt-4">
                                             <BrandDropdown />
                                         </div>
@@ -42,23 +69,8 @@ export default function Header() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
 
-                    {/* Search section */}
-                    <div className="flex items-center border-2 mb-3 md:mb-0 border-primary-500 text-gray-700 bg-zinc-100 rounded-3xl placeholder-gray-500 w-full lg:w-1/3 relative">
-                        <MagnifyingGlassIcon className="w-6 h-6 ml-3" />
-                        <input
-                            type="text"
-                            className="w-full px-2 py-2 leading-tight text-sm focus:outline-none bg-zinc-100 rounded-3x placeholder:text-slate-400 placeholder:font-medium rounded-r-3xl"
-                            placeholder="Search for products, brands..."
-                        />
-                    </div>
-
-                    {/* cart section */}
-                    <div className="lg:flex items-center hidden">
-                        <div className="flex items-center gap-x-4 -mx-1 md:mx-0 text-xs">
                             <RoundedButton onClick={() => { }} className="bg-gray-800 text-white uppercase">Wishlist</RoundedButton>
                             <RoundedButton onClick={() => { }} className="bg-slate-200 text-gray-800 uppercase">Login</RoundedButton>
                             <RoundedButton onClick={() => { }} className="flex justify-center gap-x-2 bg-primary-500 text-white uppercase">
