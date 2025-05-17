@@ -1,6 +1,10 @@
 import Link from "next/link"
 import PageOverlay from "../layouts/PageOverlay"
+import { useState } from "react"
 export default function NavMenus() {
+
+    const [showOverlay, setShowOverlay] = useState(false);
+
     return (
         <div className="mt-3 py-3 -mx-3 hidden lg:flex lg:flex-row lg:justify-between lg:mt-0 lg:mx-1 relative items-center">
             <ul className="hidden flex-1 lg:flex items-center lg:justify-between">
@@ -97,6 +101,7 @@ export default function NavMenus() {
                     </Link>
                 </li>
             </ul>
+            {showOverlay && <div className="category-overlay" />}
         </div >
     )
 }

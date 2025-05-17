@@ -110,6 +110,19 @@
   display: none;        /* hides the arrow buttons */
 }
 
+.category-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    top: 111px;
+    background-color: #000;
+    background-color: rgba(0,0,0,.5);
+    overflow-x: hidden;
+    transition: .5s;
+}
+
 .form-control {
     width: 100%;
     border-radius: .5rem;

@@ -24,8 +24,8 @@ export default function Header() {
                             {/* Hidden on desktop */}
 
                             {/* Logo */}
-                            <Link href="/" className="flex">
-                                <img src="/assets/images/logo/ruprong-logo.jpg" alt="logo" className="w-24" />
+                            <Link href="/" className="flex h-auto w-[160px]">
+                                <Image src="/assets/images/logo/ruprong-logo.jpg" alt="logo" width={608} height={150} className="" />
                                 {/* <span className="text-xl lg:text-[32px] font-bold uppercase tracking-wider">Ruprong</span> */}
                             </Link>
 
