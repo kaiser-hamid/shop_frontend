@@ -2,22 +2,23 @@ import { StarIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Product({ product }) {
-    console.log('productLink', product.img);
+export default function Product({ hit }) {
+
+    console.log('product Hits', hit);
 
     return (
         <div className="border-2 border-gray-200 rounded-xl flex flex-col justify-between h-full relative">
             {/* Main card */}
-            <Link className="flex flex-row md:block" href={product.link}>
+            <Link className="flex flex-row md:block" href={`/products/${hit.slug}`}>
                 {/* Image section */}
-                <ProductImage source={product.img} alt="Product Image" />
+                <ProductImage source={hit.featured_image} alt="Product Image" />
 
                 {/* Details section */}
-                <ProductDetails product={product} />
+                <ProductDetails hit={hit} />
 
                 {/* Discount Fixed position */}
                 <div className="absolute bg-primary-500 top-0 text-white px-2 rounded-tl-lg rounded-br-lg font-medium uppercase">
-                    {product.discount || Math.floor(Math.random() * 51) + 10}% Off
+                    {hit.discount_percentage && `${hit.discount_percentage}% Off`}
                 </div>
             </Link>
 
@@ -37,27 +38,27 @@ const ProductImage = ({ source, alt }) => {
     )
 }
 
-const ProductDetails = ({ product }) => {
+const ProductDetails = ({ hit }) => {
     return (
         <div className="px-[15px] pt-[16px] md:px-[1.75em] md:py-[1.5625em] w-[60%] md:w-full">
             <p
                 className="text-gray-700 text-sm md:min-h-full text-left md:text-center mb-2 h-[2.4em] leading-[120%] overflow-hidden hover:text-primary-500"
-                title={product.name}
+                title={hit.name}
             >
-                {product.name}
+                {hit.name}
             </p>
             <div className="pb-2 text-left md:text-center">
-                <span className="inline-block bg-primary-500 rounded-full px-3 text-white text-sm">SALE</span>
+                <span className="inline-block bg-primary-500 rounded-full px-3 text-white text-sm">{hit.stock_quantity > 0 ? "SALE" : "OUT OF STOCK"}</span>
             </div>
             <div className="flex justify-start md:justify-center space-x-3 mb-1">
-                {product.oldPrice && (
-                    <span className="line-through text-gray-400">৳ {product.oldPrice}.00</span>
+                {hit.price !== hit.sale_price && (
+                    <span className="line-through text-gray-400">৳ {hit.price}</span>
                 )}
-                <span className="text-primary-500 font-semibold">৳ {product.price}.00</span>
+                <span className="text-primary-500 font-semibold">৳ {hit.sale_price}</span>
             </div>
             <p className="text-primary-500 font-semibold text-left md:text-center mb-0 min-h-[24px]"></p>
             <div className="text-left md:text-center mb-1">
-                <div className="star-ratings inline-block align-middle" title={`${product.rating || 4} Stars`}>
+                <div className="star-ratings inline-block align-middle" title={`${hit.rating} Stars`}>
                     {[...Array(5)].map((_, i) => (
                         <svg
                             key={i}
@@ -68,7 +69,7 @@ const ProductDetails = ({ product }) => {
                             <path
                                 d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
                                 style={{
-                                    fill: i < (product.rating || 4) ? "orange" : "rgb(203, 211, 227)",
+                                    fill: i < Number(hit.rating) ? "orange" : "rgb(203, 211, 227)",
                                     transition: "fill 0.2s ease-in-out",
                                 }}
                             />
@@ -76,7 +77,9 @@ const ProductDetails = ({ product }) => {
                     ))}
                 </div>
             </div>
-            <p className="text-left md:text-center mb-1 font-semibold">{product.size || "—"}</p>
+            {hit.size && (
+                <p className="text-left md:text-center mb-1 font-semibold">{hit.size}</p>
+            )}
         </div>
     )
 }

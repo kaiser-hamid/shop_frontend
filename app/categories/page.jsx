@@ -8,7 +8,7 @@ export default function CategoriesPage() {
             <CategoryBanner />
             <div className="container pb-8">
 
-                <div class="flex flex-col md:flex-row md:space-x-4">
+                <div className="flex flex-col md:flex-row md:space-x-4">
 
                     {/* Category Sidebar */}
                     <CategorySidebar />

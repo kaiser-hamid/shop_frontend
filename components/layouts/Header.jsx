@@ -42,17 +42,6 @@ export default function Header() {
                         </div>
                     </div>
 
-
-                    {/* Search section */}
-                    {/*  <div className="flex items-center border-2 mb-3 md:mb-0 border-primary-500 text-gray-700 bg-zinc-100 rounded-3xl placeholder-gray-500 w-full lg:w-1/3 relative">
-                        <MagnifyingGlassIcon className="w-6 h-6 ml-3" />
-                        <input
-                            type="text"
-                            className="w-full px-2 py-2 leading-tight text-sm focus:outline-none bg-zinc-100 rounded-3x placeholder:text-slate-400 placeholder:font-medium rounded-r-3xl"
-                            placeholder="Search for products, brands..."
-                        />
-                    </div> */}
-
                     {/* cart section */}
                     <div className="lg:flex items-center hidden">
                         <div className="flex items-center gap-x-4 -mx-1 md:mx-0 text-xs">
