@@ -4,8 +4,6 @@ import Link from "next/link";
 
 export default function Product({ hit }) {
 
-    console.log('product Hits', hit);
-
     return (
         <div className="border-2 border-gray-200 rounded-xl flex flex-col justify-between h-full relative">
             {/* Main card */}

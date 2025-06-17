@@ -3,37 +3,28 @@
 import ProductList from "./ProductList";
 import SearchBox from "./SearchBox";
 import SortBy from "./SortBy";
-import { InstantSearch, useInstantSearch } from 'react-instantsearch';
-import { liteClient as algoliasearch } from 'algoliasearch/lite';
+import { useInstantSearch } from 'react-instantsearch';
 
-// Initialize Algolia client
-const searchClient = algoliasearch(
-    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
-    process.env.NEXT_PUBLIC_ALGOLIA_API_KEY
-);
+
 
 
 
 export default function CategoryContent() {
     return (
-        <InstantSearch
-            searchClient={searchClient}
-            indexName="products"
-        >
-            <div className="w-full md:w-[75%] mt-4">
-                {/* Search Bar */}
-                <SearchBox />
 
-                {/* Sort By */}
-                <SortBy />
+        <div className="w-full md:w-[75%] mt-4">
+            {/* Search Bar */}
+            <SearchBox />
 
-                {/* Products */}
-                <ProductList />
+            {/* Sort By */}
+            <SortBy />
 
-                {/* No Results */}
-                <NoResultsFound />
-            </div>
-        </InstantSearch>
+            {/* Products */}
+            <ProductList />
+
+            {/* No Results */}
+            <NoResultsFound />
+        </div>
     );
 }
 

@@ -1,11 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
-import Slider from "rc-slider";
-import 'rc-slider/assets/index.css';
-import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, HierarchicalMenu, SearchBox, Hits } from 'react-instantsearch-dom';
+import PriceFilter from "./PriceFilter";
 
 // Brand data outside the component
 const BRAND_LABELS = [
@@ -42,10 +38,6 @@ export default function CategorySidebar() {
             [brand]: !prev[brand],
         }));
     };
-
-    // Price filter state
-    const [price, setPrice] = useState({ minPrice: 0, maxPrice: 10000 });
-    const handleClearPrice = () => setPrice({ minPrice: 0, maxPrice: 10000 });
 
     // State for brand search
     const [brandSearch, setBrandSearch] = useState("");
@@ -124,7 +116,7 @@ export default function CategorySidebar() {
         <div className="grow filter-toggle-hide">
             <div className="flex-none p-6 md:pr-4 w-80 md:w-full max-w-xs h-screen md:h-auto bg-white transition-all duration-500 ease-in-out transform overflow-y-auto flex flex-col text-black ml-auto md:ml-0 custom-scroll">
                 <h2 className="my-5 pb-2 font-medium border-b">Filter by Price</h2>
-                <PriceFilter price={price} setPrice={setPrice} />
+                <PriceFilter />
 
                 <h2 className="mt-10 mb-5 pb-2 font-medium border-b">Product Categories</h2>
                 <CategoryFilter />
@@ -134,30 +126,6 @@ export default function CategorySidebar() {
             </div>
         </div>
     )
-}
-
-const PriceFilter = ({ price, setPrice }) => {
-    return (
-        <div className="ml-2">
-            <Slider
-                range
-                min={0}
-                max={10000}
-                step={10}
-                defaultValue={[price.minPrice, price.maxPrice]}
-                onChange={(values) => setPrice({ minPrice: values[0], maxPrice: values[1] })}
-                trackStyle={{ backgroundColor: "#c72116", height: '8px' }}
-                handleStyle={{ backgroundColor: "#FFF", opacity: 1, marginTop: '-5px', borderColor: "#e5e5e5", borderWidth: '2px', width: '20px', height: '20px', cursor: 'pointer' }}
-                railStyle={{ backgroundColor: "#d8d8d8", height: '8px', borderRadius: 0 }}
-                className="price-slider"
-            />
-
-            <div className="flex justify-between w-full items-center mt-2">
-                <p className="text-[0.8rem]">৳ {price.minPrice}</p>
-                <p className="text-[0.8rem]">৳ {price.maxPrice}</p>
-            </div>
-        </div>
-    );
 }
 
 const CategoryFilter = () => {
