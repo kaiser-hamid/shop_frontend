@@ -1,48 +1,11 @@
+"use client";
+
 import React, { useRef } from "react";
 import ImageGallery from "react-image-gallery";
 import Image from "next/image";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-const images = [
-    {
-        original: "/assets/images/beauty/img-69.jpg",
-        thumbnail: "/assets/images/beauty/img-69.jpg",
-    },
-    {
-        original: "/assets/images/beauty/img-70.jpg",
-        thumbnail: "/assets/images/beauty/img-70.jpg",
-    },
-    {
-        original: "/assets/images/beauty/img-71.jpg",
-        thumbnail: "/assets/images/beauty/img-71.jpg",
-    },
-    {
-        original: "/assets/images/beauty/img-69.jpg",
-        thumbnail: "/assets/images/beauty/img-69.jpg",
-    },
-    {
-        original: "/assets/images/beauty/img-70.jpg",
-        thumbnail: "/assets/images/beauty/img-70.jpg",
-    },
-    {
-        original: "/assets/images/beauty/img-71.jpg",
-        thumbnail: "/assets/images/beauty/img-71.jpg",
-    },
-    {
-        original: "/assets/images/beauty/img-69.jpg",
-        thumbnail: "/assets/images/beauty/img-69.jpg",
-    },
-    {
-        original: "/assets/images/beauty/img-70.jpg",
-        thumbnail: "/assets/images/beauty/img-70.jpg",
-    },
-    {
-        original: "/assets/images/beauty/img-71.jpg",
-        thumbnail: "/assets/images/beauty/img-71.jpg",
-    },
-];
-
-export default function ProductGallery() {
+export default function ProductGallery({ productImages }) {
     const galleryRef = useRef();
 
     // Custom renderItem to use next/image and center in fullscreen
@@ -54,7 +17,7 @@ export default function ProductGallery() {
         >
             <Image
                 src={item.original}
-                alt={item.originalAlt || ''}
+                alt={item.original || ''}
                 width={1200} // set your desired width
                 height={1200} // set your desired height
                 className="object-contain max-h-[80vh] w-auto h-auto"
@@ -63,10 +26,17 @@ export default function ProductGallery() {
         </div>
     );
 
+    const imageData = productImages.map(image => ({
+        original: image,
+        thumbnail: image,
+    }));
+
+    console.log('imageData', imageData);
+
     return (
         <ImageGallery
             ref={galleryRef}
-            items={images}
+            items={imageData}
             autoPlay={false}
             showPlayButton={false}
             slideOnThumbnailOver={true}

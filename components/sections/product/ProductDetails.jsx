@@ -1,16 +1,17 @@
 import Image from 'next/image';
+import ReadMoreText from '../../ui/ReadMoreText';
 
-export default function ProductDetails() {
+export default function ProductDetails({ product }) {
     return (
         <div className="product-detail-col mt-[2rem] p-[0.5rem]">
             <h2 className="text-lg leading-5 font-medium product-id-686247 text-rr-quartz">
-                Parachute Naturale Nourishing Care Shampoo with Aloe Vera & Coconut Milk, For Strong & Silky Hair, Smoothens Hair, Paraben Free, 100% Vegan, All Hair Types, 160 ml
+                {product.name}
             </h2>
             <div className="flex items-center gap-4 my-4">
-                <h4 className="text-sm text-gray-500">Size: 160ml</h4>
-                <ProductRating />
+                <h4 className="text-sm text-gray-500">Size: {product.size}</h4>
+                <ProductRating rating={product.rating} reviews_count={product.reviews_count} />
             </div>
-            <ProductPriceLine />
+            <ProductPriceLine oldPrice={product.old_price} salePrice={product.sale_price} priceSaved={product.price_saved} discount={product.discount} />
 
             {/* <div className="flex flex-col mb-4">
                 <DownloadAppBanner />
@@ -19,40 +20,40 @@ export default function ProductDetails() {
 
             <CartAction />
 
-            <StockStatus />
+            <StockStatus low_stock_status={product.low_stock_status} />
 
             <hr className="mb-8 mt-8" />
-            <ProductDescription />
+            <ProductDescription product={product} />
         </div>
     );
 }
 
-const ProductRating = () => {
+const ProductRating = ({ rating, reviews_count }) => {
     return (
         <div className="flex gap-2 items-center">
             <div className="flex items-center bg-green-700 text-white gap-1 px-2 py-[2px] rounded-full text-sm font-medium">
-                4.1
+                {rating}
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 576 512" height="12" width="12" xmlns="http://www.w3.org/2000/svg">
                     <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
                 </svg>
-                | 89 Reviews
+                | {reviews_count} Reviews
             </div>
         </div>
     )
 }
 
-const ProductPriceLine = () => {
+const ProductPriceLine = ({ oldPrice, salePrice, priceSaved, discount }) => {
     return (
         <div className="my-4">
             <div className="flex text-lg space-x-3 ">
                 <div className="flex flex-col">
                     <div className="flex items-center gap-4 flex-wrap">
-                        <span className="just-price">৳110.00</span>
-                        <span className="cut-price">৳140.00</span>
-                        <span className="text-green-700 text-base">Save ৳30.00 </span>
-                        <div className="flex items-center gap-4">
-                            <span className="bg-purple-800 text-white px-3 py-1 rounded-tr-2xl rounded-bl-2xl text-xs">21% OFF</span>
-                        </div>
+                        <span className="just-price">৳{salePrice}</span>
+                        {oldPrice && <span className="cut-price">৳{oldPrice}</span>}
+                        {priceSaved && <span className="text-green-700 text-base">Save ৳{priceSaved} </span>}
+                        {discount && <div className="flex items-center gap-4">
+                            <span className="bg-purple-800 text-white px-3 py-1 rounded-tr-2xl rounded-bl-2xl text-xs">{discount}% OFF</span>
+                        </div>}
                     </div>
                 </div>
             </div>
@@ -108,75 +109,59 @@ const CartAction = () => {
     )
 }
 
-const StockStatus = () => {
+const StockStatus = ({ low_stock_status }) => {
+    if (!low_stock_status) return null;
+
     return (
         <div className="mt-5 flex items-center gap-2">
             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" className="text-primary-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"></path>
             </svg>
-            <h4 className="text-sm font-medium ">Only <span className="text-primary-500 font-semibold">1</span> item left in stock</h4>
+            <h4 className="text-sm font-medium ">{low_stock_status}</h4>
         </div>
     )
 }
 
-const ProductDescription = () => {
+const ProductDescription = ({ product }) => {
     return (
         <div className="mt-6 text-rr-quartz text-sm">
             <div className="flex flex-col md:flex-row mb-5 gap-2 md:gap-0">
                 <h4 className="min-w-[160px] font-medium">Brief Description</h4>
                 <div>
-                    <div className="html-content max-h-24  overflow-hidden ">
-                        <ul>
-                            <li><strong>Brand:</strong> Parachute Naturale.</li>
-                            <li><strong>Product Benefits:</strong> Strong & Silky Hair.</li>
-                            <li><strong>Item Form:</strong> Liquid Shampoo.</li>
-                            <li><strong>Material Type Free:</strong> Paraben, Silicone Free.</li>
-                            <li><strong>Scent:</strong> Coconut.</li>
-                            <li><strong>Hair Type:</strong> All Hair Types.</li>
-                            <li><strong>Liquid Volume:</strong> 160 ml.</li>
-                            <li><strong>Special Feature:</strong> Contains Aloe Vera & Coconut, 100% Vegan.</li>
-                        </ul>
-                        <p>&nbsp;</p>
-                    </div>
-                    <button className="text-primary-500 hover:text-purple-800 mt-1">Read More...</button>
+                    <ReadMoreText
+                        content={product.brief_description}
+                        className="html-content"
+                    />
                 </div>
             </div>
             <div className="flex">
                 <h4 className="min-w-[80px] md:min-w-[160px] font-medium">SKU</h4>
-                <p>10726</p>
+                <p>{product.sku}</p>
             </div>
             <div className="flex flex-col md:flex-row mb-5 gap-2 md:gap-0">
                 <h4 className="min-w-[160px] font-medium">Categories</h4>
                 <p>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/hair">Hair, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/men">Men, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/offers">Offers, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/hair-care">Hair Care, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/shampoo">Shampoo, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/hair-care-men">Hair Care, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/shampoo-hair-care-men">Shampoo, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/top-selling">Top Selling, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/product-category/marico-pink-beauty-deals">Marico Pink Beauty Deals</a>
+                    {product.categories?.map((category) => (
+                        <a key={category.slug} className="cursor-pointer hover:text-primary-500" href={`/categories/${category.slug}`}>{category.name}, </a>
+                    ))}
                 </p>
             </div>
             <div className="flex">
                 <h4 className="min-w-[80px] md:min-w-[160px] font-medium">Tags</h4>
                 <p>
-                    <a className="cursor-pointer hover:text-primary-500" href="/shop?tags=FMCG">FMCG, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/shop?tags=marico-bangladesh">marico-bangladesh, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/shop?tags=Pink+Beauty+Sale">Pink Beauty Sale, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/shop?tags=marico_parachute_campaign">marico_parachute_campaign, </a>
-                    <a className="cursor-pointer hover:text-primary-500" href="/shop?tags=pink+beauty+sale+5.0">pink beauty sale 5.0</a>
+                    {product.tags?.map((tag) => (
+                        <span key={tag} className="">{tag}, </span>
+                    ))}
                 </p>
             </div>
             <div className="flex">
                 <h4 className="min-w-[80px] md:min-w-[160px] font-medium">Brands</h4>
                 <p>
-                    <a className="cursor-pointer hover:text-primary-500" href="/brand/parachute-naturale">Parachute Naturale</a>
+                    <a className="cursor-pointer hover:text-primary-500" href={`/brands/${product.brand.slug}`}>{product.brand.name}</a>
                 </p>
             </div>
             <ProductAttributes />
-        </div>
+        </div >
     )
 }
 
