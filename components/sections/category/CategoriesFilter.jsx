@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { useHierarchicalMenu, useRefinementList } from 'react-instantsearch';
+import { useHierarchicalMenu } from 'react-instantsearch';
 
 const categoryAttributes = [
     'hierarchicalCategories.lvl0',
@@ -7,8 +7,9 @@ const categoryAttributes = [
     'hierarchicalCategories.lvl2'
 ];
 
+const topItems = ['Free Delivery', 'Top Selling', 'New Arrivals'];
+
 export default function CategoriesFilter() {
-    // For hierarchical categories
     const {
         items: hierarchicalItems,
         refine: refineHierarchical,
@@ -17,26 +18,15 @@ export default function CategoriesFilter() {
         limit: 999,
         showMore: true,
         showMoreLimit: 1000,
-        sortBy: ['name:asc']
+        sortBy: ['count:desc']
     });
 
-    // For flat categories
-    const {
-        items: flatItems,
-        refine: refineFlatCategory,
-    } = useRefinementList({
-        attribute: 'categories',
-        operator: 'and',
-        limit: 1000,
-        transformItems: useCallback(items =>
-            items.filter(item => !item.value.includes(' > ')),
-            []
-        ),
-    });
+    const hierarchicalCategoriesTopItems = hierarchicalItems.filter(item => topItems.includes(item.value));
+    const hierarchicalCategoriesRestItems = hierarchicalItems.filter(item => !topItems.includes(item.value));
 
-    console.log('Hierarchical Items:', JSON.stringify(hierarchicalItems, null, 2));
+    const sortedData = [...hierarchicalCategoriesTopItems, ...hierarchicalCategoriesRestItems];
 
-    // Memoize the render function
+
     const renderHierarchicalCategories = useCallback((items, level = 0) => {
         if (!items || items.length === 0) return null;
 
@@ -58,7 +48,7 @@ export default function CategoriesFilter() {
                                 onClick={() => refineHierarchical(item.value)}
                             >
                                 <span className="text-[0.9rem]">
-                                    {item.label}
+                                    {item.label} {topItems.includes(item.value) && "⚡"}
                                 </span>
                                 <span className="text-[0.8rem] text-accent-500 py-0.5 px-2.5 bg-secondary-100 rounded-full">
                                     {item.count}
@@ -77,34 +67,15 @@ export default function CategoriesFilter() {
         );
     }, [refineHierarchical]);
 
-    if ((!hierarchicalItems || hierarchicalItems.length === 0) &&
-        (!flatItems || flatItems.length === 0)) {
+    if (!hierarchicalItems || hierarchicalItems.length === 0) {
         return null;
     }
 
     return (
         <div>
-            {/* Flat categories */}
-            <ul className="max-h-[380px] overflow-y-auto space-y-2">
-                {flatItems.map((item) => (
-                    <li
-                        key={item.value}
-                        className={`flex items-center justify-between cursor-pointer ${item.isRefined ? 'text-primary-500 font-semibold' : 'text-slate-600 hover:text-primary-500'
-                            }`}
-                        onClick={() => refineFlatCategory(item.value)}
-                    >
-                        <span className="text-[0.9rem]">{item.label}</span>
-                        <span className="text-[0.8rem] text-accent-500 py-0.5 px-2.5 bg-secondary-100 rounded-full">
-                            {item.count}
-                        </span>
-                    </li>
-                ))}
-            </ul>
-
-            {/* Hierarchical categories */}
             {hierarchicalItems && hierarchicalItems.length > 0 && (
                 <div className="mt-6">
-                    {renderHierarchicalCategories(hierarchicalItems)}
+                    {renderHierarchicalCategories(sortedData)}
                 </div>
             )}
         </div>
