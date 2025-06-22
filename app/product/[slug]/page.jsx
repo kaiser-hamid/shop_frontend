@@ -25,8 +25,42 @@ export async function getProduct(slug) {
     }
 }
 
+// Generate metadata for the product page
+export async function generateMetadata({ params }) {
+    const product = await getProduct(params.slug);
 
+    if (!product) {
+        return {
+            title: 'Product Not Found',
+            description: 'The requested product could not be found.'
+        };
+    }
 
+    return {
+        title: product.meta_title || 'Product Details',
+        description: product.meta_description || product.brief_description,
+        keywords: product.meta_keywords?.join(',') || product.name,
+        openGraph: {
+            title: product.meta_title || product.name,
+            description: product.meta_description || product.brief_description,
+            images: product.product_images && product.product_images.length > 0
+                ? [{ url: product.product_images[0] }]
+                : [],
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: product.meta_title || product.name,
+            description: product.meta_description || product.brief_description,
+            images: product.product_images && product.product_images.length > 0
+                ? [product.product_images[0]]
+                : [],
+        },
+        alternates: {
+            canonical: `/product/${params.slug}`,
+        },
+    };
+}
 
 export default async function ProductPage({ params }) {
 
