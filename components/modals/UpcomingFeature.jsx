@@ -5,12 +5,12 @@ import React from 'react'
 import DialogComponent from '../ui/Dialog'
 import RoundedButton from '../ui/buttons/RoundedButton'
 
-export default function UpcomingFeature({ children }) {
+export default function UpcomingFeature({ children, className }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
-            <div onClick={() => setIsOpen(true)} className="inline-block">
+            <div onClick={() => setIsOpen(true)} className={className}>
                 {children}
             </div>
 

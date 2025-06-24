@@ -1,9 +1,11 @@
 "use client";
 import { ShoppingBagIcon } from '@heroicons/react/24/solid'
-import useUiStore from '@/store/ui-store';
+import useCartStore from '@/store/cart-store';
 
 export default function CartEvent() {
-    const setCartIsOpen = useUiStore((state) => state.setCartIsOpen);
+    const setCartIsOpen = useCartStore((state) => state.setCartIsOpen);
+    const totalItems = useCartStore((state) => state.totalItems);
+    const totalPrice = useCartStore((state) => state.totalPrice);
     return (
         <button
             type="button"
@@ -13,12 +15,12 @@ export default function CartEvent() {
             <div className="bg-rr-black rounded-tl-lg flex flex-col text-center px-1 pt-2 gap-1 pb-1 items-center w-full">
                 <ShoppingBagIcon className="w-5 h-5 md:w-7 md:h-7 text-xl md:text-2xl" />
                 <div className="flex flex-col md:flex-row text-sm items-center gap-0 md:gap-1">
-                    <span>0</span>
+                    <span>{totalItems}</span>
                     <span className="text-xs">ITEMS</span>
                 </div>
             </div>
             <div className="bg-primary-500 rounded-bl-lg text-center text-sm px-1 py-1 w-full">
-                <span>৳ 0</span>
+                <span>৳ {totalPrice}</span>
             </div>
         </button>
     )

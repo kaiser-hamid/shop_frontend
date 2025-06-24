@@ -1,6 +1,6 @@
 import ProductGallery from "@/components/sections/product/ProductGallery";
 import ProductDetails from "@/components/sections/product/ProductDetails";
-import RecentlyViewedProducts from "@/components/sections/product/RecentlyViewedProducts";
+import CustomerAlsoViewedProducts from "@/components/sections/product/CustomerAlsoViewedProducts";
 import RecommendedProducts from "@/components/sections/product/RecommendedProducts";
 import ProductAdditionalInfo from "@/components/sections/product/ProductAdditionalInfo";
 import AvailableOffer from "@/components/sections/product/AvailableOffer";
@@ -95,10 +95,10 @@ export default async function ProductPage({ params }) {
             <ProductAdditionalInfo productId={product.id} />
 
             {/* Recommended Products */}
-            <RecommendedProducts />
+            <RecommendedProducts currentProduct={product} />
 
             {/* Recently Viewed Products */}
-            <RecentlyViewedProducts />
+            <CustomerAlsoViewedProducts currentProduct={product} />
 
         </div>
     )

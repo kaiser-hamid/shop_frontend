@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@algolia/recommend": "^5.29.0",
     "@headlessui/react": "^2.2.2",
     "@heroicons/react": "^2.2.0",
     "algoliasearch": "^5.27.0",

@@ -9,7 +9,7 @@ export default function ProductSuggestion({ product }) {
                     <div className="relative w-full h-[280px]">
                         <Image
                             alt={product.name}
-                            src={product.img}
+                            src={product.featured_image}
                             height={400}
                             width={400}
                             className="object-cover object-center hover:scale-110 transition-all ease-in-out duration-1000"
@@ -17,7 +17,7 @@ export default function ProductSuggestion({ product }) {
                     </div>
                 </div>
                 <div className="px-[15px] pt-[16px] md:px-[1.75em] md:py-1 w-[60%] md:w-full">
-                    <Link href={product.link || '#'}>
+                    <Link href={`/product/${product.slug}`}>
                         <p
                             className="text-gray-700 text-sm md:min-h-full text-left md:text-center mb-2 h-[2.4em] leading-[120%] overflow-hidden hover:text-primary-500 cursor-pointer"
                             title={product.name}
@@ -26,10 +26,10 @@ export default function ProductSuggestion({ product }) {
                         </p>
                     </Link>
                     <div className="flex justify-start md:justify-center space-x-3 mb-1">
-                        {product.oldPrice && (
-                            <span className="line-through text-gray-400">৳ {product.oldPrice}.00</span>
+                        {product.price !== product.sale_price && (
+                            <span className="line-through text-gray-400">৳ {product.price}</span>
                         )}
-                        <span className="text-primary-500 font-semibold">৳ {product.price}.00</span>
+                        <span className="text-primary-500 font-semibold">৳ {product.sale_price}</span>
                     </div>
                     <p className="text-primary-500 font-semibold text-left md:text-center mb-0 min-h-[24px]"></p>
                 </div>

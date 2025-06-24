@@ -2,11 +2,11 @@
 
 import { XMarkIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon } from "@heroicons/react/24/solid";
-import useUiStore from "@/store/ui-store";
+import useCartStore from "@/store/cart-store";
 
 export default function Cart() {
-    const setCartIsOpen = useUiStore((state) => state.setCartIsOpen);
-    const cartIsOpen = useUiStore((state) => state.cartIsOpen);
+    const setCartIsOpen = useCartStore((state) => state.setCartIsOpen);
+    const cartIsOpen = useCartStore((state) => state.cartIsOpen);
 
     return (
         <div
@@ -25,7 +25,7 @@ export default function Cart() {
 }
 
 const EmptyCart = () => {
-    const setCartIsOpen = useUiStore((state) => state.setCartIsOpen);
+    const setCartIsOpen = useCartStore((state) => state.setCartIsOpen);
     return (
         <div className="z-40 fixed top-0 h-screen overflow-hidden right-0 no-scrollbar w-96 max-w-xs sm:max-w-sm bg-gray-200 transition-all duration-500 ease-in-out transform flex flex-col text-black">
             <div className="flex p-4 items-center border-solid border-b-2 border-gray-200 bg-white relative">
@@ -94,7 +94,7 @@ const CartItemList = () => {
 }
 
 const EmptyCartOld = () => {
-    const setCartIsOpen = useUiStore((state) => state.setCartIsOpen);
+    const setCartIsOpen = useCartStore((state) => state.setCartIsOpen);
     return (
         <div className="flex-1 w-full flex flex-col items-center justify-center p-2 lg:p-4">
             <div className="flex flex-col items-center justify-center flex-1 w-full p-2 lg:p-4">

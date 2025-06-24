@@ -1,8 +1,7 @@
-"use client"
-
+"use client";
+import { useState, useEffect } from "react";
 import ProductSuggestion from "@/components/cards/ProductSuggestion";
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
-import { useEffect, useState } from "react";
 
 // Initialize Algolia client
 const searchClient = algoliasearch(
@@ -10,7 +9,7 @@ const searchClient = algoliasearch(
     process.env.NEXT_PUBLIC_ALGOLIA_API_KEY
 );
 
-export default function RecommendedProducts({ currentProduct }) {
+export default function CustomerAlsoViewedProducts({ currentProduct }) {
     const [recommendations, setRecommendations] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -24,25 +23,26 @@ export default function RecommendedProducts({ currentProduct }) {
             try {
                 setLoading(true);
 
-                // Create smart filters for recommendations
+                // Strategy for "Customer Also Viewed" - focus on similar products
+                // that customers typically browse together
                 const filters = [];
 
-                // Filter by same category (highest priority)
+                // Primary filter: Same category (most important for "also viewed")
                 if (currentProduct.category) {
                     filters.push(`category:${currentProduct.category}`);
                 }
 
-                // Filter by same brand (second priority)
-                if (currentProduct.brand) {
-                    filters.push(`brand:${currentProduct.brand}`);
-                }
-
-                // Filter by similar price range (third priority)
+                // Secondary filter: Similar price range (customers often compare similarly priced items)
                 if (currentProduct.price) {
-                    const priceRange = currentProduct.price * 0.4; // 40% range
+                    const priceRange = currentProduct.price * 0.6; // 60% range for broader selection
                     const minPrice = Math.max(0, currentProduct.price - priceRange);
                     const maxPrice = currentProduct.price + priceRange;
                     filters.push(`price:${minPrice} TO ${maxPrice}`);
+                }
+
+                // Tertiary filter: Same brand (customers often browse within brands)
+                if (currentProduct.brand) {
+                    filters.push(`brand:${currentProduct.brand}`);
                 }
 
                 // If we have filters, search for recommendations
@@ -51,44 +51,46 @@ export default function RecommendedProducts({ currentProduct }) {
                         {
                             indexName: 'products',
                             params: {
-                                filters: filters.join(' OR '),
+                                filters: `${filters.join(' OR ')} AND NOT objectID:${currentProduct.id}`,
                                 hitsPerPage: 12,
                                 distinct: true,
-                                // Exclude current product
-                                filters: `NOT objectID:${currentProduct.id}`,
                             },
                         },
                     ]);
 
                     const hits = results.results[0].hits || [];
 
-                    // Sort by relevance (category match first, then brand, then price similarity)
+                    // Sort by relevance for "also viewed" context
                     const sortedHits = hits.sort((a, b) => {
                         let scoreA = 0;
                         let scoreB = 0;
 
-                        // Category match gets highest score
+                        // Category match gets highest score (customers view similar categories)
                         if (a.category === currentProduct.category) scoreA += 100;
                         if (b.category === currentProduct.category) scoreB += 100;
+
+                        // Price similarity gets high score (customers compare similar prices)
+                        if (a.price && currentProduct.price) {
+                            const priceDiffA = Math.abs(a.price - currentProduct.price);
+                            const priceDiffB = Math.abs(b.price - currentProduct.price);
+                            scoreA += Math.max(0, 80 - priceDiffA / 5);
+                            scoreB += Math.max(0, 80 - priceDiffB / 5);
+                        }
 
                         // Brand match gets medium score
                         if (a.brand === currentProduct.brand) scoreA += 50;
                         if (b.brand === currentProduct.brand) scoreB += 50;
 
-                        // Price similarity gets lower score
-                        if (a.price && currentProduct.price) {
-                            const priceDiffA = Math.abs(a.price - currentProduct.price);
-                            const priceDiffB = Math.abs(b.price - currentProduct.price);
-                            scoreA += Math.max(0, 25 - priceDiffA / 10);
-                            scoreB += Math.max(0, 25 - priceDiffB / 10);
-                        }
+                        // Popularity/rating can influence "also viewed"
+                        if (a.rating) scoreA += a.rating * 10;
+                        if (b.rating) scoreB += b.rating * 10;
 
                         return scoreB - scoreA;
                     });
 
                     setRecommendations(sortedHits.slice(0, 8));
                 } else {
-                    // If no filters available, get random products
+                    // If no filters available, get random products from same category
                     const results = await searchClient.search([
                         {
                             indexName: 'products',
@@ -103,7 +105,7 @@ export default function RecommendedProducts({ currentProduct }) {
                     setRecommendations(results.results[0].hits || []);
                 }
             } catch (error) {
-                console.error('Error fetching recommendations:', error);
+                console.error('Error fetching also viewed recommendations:', error);
                 setRecommendations([]);
             } finally {
                 setLoading(false);
@@ -113,19 +115,17 @@ export default function RecommendedProducts({ currentProduct }) {
         fetchRecommendations();
     }, [currentProduct]);
 
-    // Fallback products if no recommendations found
-
-
+    // Don't render if loading or no recommendations
     if (loading) {
         return (
             <div className="mb-14">
-                <h2 className="text-lg font-medium">RECOMMENDED PRODUCTS</h2>
+                <h2 className="text-lg font-medium">CUSTOMER ALSO VIEWED</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-7">
                     {[...Array(4)].map((_, index) => (
-                        <div key={index} className="border-2 border-gray-200 rounded-xl p-4 animate-pulse">
-                            <div className="bg-gray-300 h-48 rounded-lg mb-4"></div>
-                            <div className="bg-gray-300 h-4 rounded mb-2"></div>
-                            <div className="bg-gray-300 h-4 rounded w-2/3"></div>
+                        <div key={index} className="animate-pulse">
+                            <div className="bg-gray-200 h-48 rounded-lg mb-2"></div>
+                            <div className="bg-gray-200 h-4 rounded mb-1"></div>
+                            <div className="bg-gray-200 h-4 rounded w-2/3"></div>
                         </div>
                     ))}
                 </div>
@@ -133,17 +133,20 @@ export default function RecommendedProducts({ currentProduct }) {
         );
     }
 
-    const productsToShow = recommendations.length > 0 ? recommendations : [];
+    if (recommendations.length === 0) {
+        return null;
+    }
 
     return (
         <div className="mb-14">
-            <h2 className="text-lg font-medium">RECOMMENDED PRODUCTS</h2>
+            <h2 className="text-lg font-medium">CUSTOMER ALSO VIEWED</h2>
 
+            {/* List of products */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-7">
-                {productsToShow.map((product, index) => (
-                    <ProductSuggestion key={product.objectID || index} product={product} />
+                {recommendations.map((product, index) => (
+                    <ProductSuggestion key={`${product.objectID}-${index}`} product={product} />
                 ))}
             </div>
         </div>
     );
-}
+} 
