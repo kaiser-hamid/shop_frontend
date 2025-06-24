@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <meta content="Shajgoj" name="Shajgoj is the first online cosmetic and beauty products store in Bangladesh" />
         <meta content="Shajgoj" name="random author" />
       </head>
-       <body className="text-base font-montserrat">
+       <body className="text-base font-montserrat" suppressHydrationWarning={true}>
           <Header />
           <CartEvent />
           <Cart />

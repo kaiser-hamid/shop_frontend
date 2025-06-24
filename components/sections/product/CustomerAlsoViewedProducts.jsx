@@ -42,7 +42,13 @@ export default function CustomerAlsoViewedProducts({ currentProduct }) {
 
                 // Tertiary filter: Same brand (customers often browse within brands)
                 if (currentProduct.brand) {
-                    filters.push(`brand:${currentProduct.brand}`);
+                    // Handle brand as string or object
+                    const brandName = typeof currentProduct.brand === 'string'
+                        ? currentProduct.brand
+                        : currentProduct.brand.name;
+                    if (brandName) {
+                        filters.push(`brand:${brandName}`);
+                    }
                 }
 
                 // If we have filters, search for recommendations
@@ -78,8 +84,11 @@ export default function CustomerAlsoViewedProducts({ currentProduct }) {
                         }
 
                         // Brand match gets medium score
-                        if (a.brand === currentProduct.brand) scoreA += 50;
-                        if (b.brand === currentProduct.brand) scoreB += 50;
+                        const currentBrand = typeof currentProduct.brand === 'string'
+                            ? currentProduct.brand
+                            : currentProduct.brand?.name;
+                        if (a.brand === currentBrand) scoreA += 50;
+                        if (b.brand === currentBrand) scoreB += 50;
 
                         // Popularity/rating can influence "also viewed"
                         if (a.rating) scoreA += a.rating * 10;
