@@ -1,14 +1,13 @@
 "use client";
 import { ShoppingBagIcon } from '@heroicons/react/24/solid'
-import { useDispatch } from 'react-redux';
-import { toggleCartAction } from '../../store/cartSlice';
+import useUiStore from '@/store/ui-store';
 
 export default function CartEvent() {
-    const dispatch = useDispatch();
+    const setCartIsOpen = useUiStore((state) => state.setCartIsOpen);
     return (
         <button
             type="button"
-            onClick={() => dispatch(toggleCartAction())}
+            onClick={() => setCartIsOpen(true)}
             className="flex flex-col fixed right-0 top-[40%] border-t border-l border-b border-primary-500 rounded-tl-lg rounded-bl-lg text-white text-[0.6rem] md:text-xs z-20 cursor-pointer min-w-[60px] md:min-w-[70px] mini-cart-btn"
         >
             <div className="bg-rr-black rounded-tl-lg flex flex-col text-center px-1 pt-2 gap-1 pb-1 items-center w-full">

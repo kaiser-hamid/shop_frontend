@@ -92,7 +92,7 @@ export default async function ProductPage({ params }) {
             </div>
 
             {/* Product Additional Info Tab */}
-            <ProductAdditionalInfo />
+            <ProductAdditionalInfo productId={product.id} />
 
             {/* Recommended Products */}
             <RecommendedProducts />

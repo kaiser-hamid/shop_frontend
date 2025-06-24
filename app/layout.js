@@ -4,7 +4,7 @@ import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import CartEvent from "@/components/ui/CartEvent";
 import Cart from "@/components/modals/Cart";
-import ReduxProvider from "@/store/ReduxProvider";
+
 
 
 export const metadata = {
@@ -23,7 +23,6 @@ export default function RootLayout({ children }) {
         <meta content="Shajgoj" name="random author" />
       </head>
        <body className="text-base font-montserrat">
-        <ReduxProvider> 
           <Header />
           <CartEvent />
           <Cart />
@@ -31,7 +30,6 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <Footer />
-        </ReduxProvider>
       </body>
     </html>
   );

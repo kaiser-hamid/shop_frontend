@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import ReadMoreText from '../../ui/ReadMoreText';
+import UpcomingFeature from '../../modals/UpcomingFeature';
 
 export default function ProductDetails({ product }) {
     return (
@@ -30,15 +31,17 @@ export default function ProductDetails({ product }) {
 
 const ProductRating = ({ rating, reviews_count }) => {
     return (
-        <div className="flex gap-2 items-center">
-            <div className="flex items-center bg-green-700 text-white gap-1 px-2 py-[2px] rounded-full text-sm font-medium">
-                {rating}
-                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 576 512" height="12" width="12" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                </svg>
-                | {reviews_count} Reviews
+        <UpcomingFeature>
+            <div className="flex gap-2 items-center">
+                <div className="flex items-center bg-green-700 text-white gap-1 px-2 py-[2px] rounded-full text-sm font-medium">
+                    {rating}
+                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 576 512" height="12" width="12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                    </svg>
+                    | {reviews_count} Reviews
+                </div>
             </div>
-        </div>
+        </UpcomingFeature>
     )
 }
 
@@ -90,11 +93,16 @@ const SellerInfo = () => {
 const CartAction = () => {
     return (
         <div className="flex space-x-3 items-center p-1 mt-4">
-            <button title="Add To Wishlist" className="bg-rr-black px-4 h-12 text-white rounded-lg">
-                <svg stroke="currentColor" fill="white" strokeWidth="0" viewBox="0 0 16 16" height="25" width="25" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"></path>
-                </svg>
-            </button>
+            {/* Add To Wishlist */}
+            <UpcomingFeature>
+                <button title="Add To Wishlist" className="bg-rr-black px-4 h-12 text-white rounded-lg">
+                    <svg stroke="currentColor" fill="white" strokeWidth="0" viewBox="0 0 16 16" height="25" width="25" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"></path>
+                    </svg>
+                </button>
+            </UpcomingFeature>
+
+            {/* Add To Cart */}
             <div className="flex space-x-3">
                 <div className="w-24 md:w-32 h-12">
                     <div className="flex flex-row w-full h-full rounded-lg relative bg-transparent border border-1 border-gray-300">

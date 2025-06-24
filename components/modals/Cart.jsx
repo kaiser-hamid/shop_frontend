@@ -2,21 +2,19 @@
 
 import { XMarkIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon } from "@heroicons/react/24/solid";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleCartAction } from "../../store/cartSlice";
+import useUiStore from "@/store/ui-store";
 
 export default function Cart() {
-    const { isOpen } = useSelector((state) => state.cart);
-    const dispatch = useDispatch();
-
+    const setCartIsOpen = useUiStore((state) => state.setCartIsOpen);
+    const cartIsOpen = useUiStore((state) => state.cartIsOpen);
 
     return (
         <div
-            className={`${!isOpen && 'pointer-events-none opacity-0'} fixed inset-0 z-50 flex items-start bg-black/50 transition-all duration-300`}
-            onClick={() => dispatch(toggleCartAction())}
+            className={`${!cartIsOpen && 'pointer-events-none opacity-0'} fixed inset-0 z-50 flex items-start bg-black/50 transition-all duration-300`}
+            onClick={() => setCartIsOpen(false)}
         >
             <div
-                className={`${!isOpen && 'translate-x-[300px] lg:translate-x-[350px]'} bg-zinc-100 h-full w-[300px] lg:w-[350px] ml-auto relative flex flex-col items-center overflow-y-hidden transition-transform duration-300`}
+                className={`${!cartIsOpen && 'translate-x-[300px] lg:translate-x-[350px]'} bg-zinc-100 h-full w-[300px] lg:w-[350px] ml-auto relative flex flex-col items-center overflow-y-hidden transition-transform duration-300`}
                 style={{ height: '100vh' }}
                 onClick={(e) => e.stopPropagation()}
             >
@@ -27,11 +25,11 @@ export default function Cart() {
 }
 
 const EmptyCart = () => {
-    const dispatch = useDispatch();
+    const setCartIsOpen = useUiStore((state) => state.setCartIsOpen);
     return (
         <div className="z-40 fixed top-0 h-screen overflow-hidden right-0 no-scrollbar w-96 max-w-xs sm:max-w-sm bg-gray-200 transition-all duration-500 ease-in-out transform flex flex-col text-black">
             <div className="flex p-4 items-center border-solid border-b-2 border-gray-200 bg-white relative">
-                <div className="absolute right-4 cursor-pointer text-sg-pink" onClick={() => dispatch(toggleCartAction())}>
+                <div className="absolute right-4 cursor-pointer text-sg-pink" onClick={() => setCartIsOpen(false)}>
                     <svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24" height="30" width="30" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z" fill="currentColor"></path>
                     </svg>
@@ -96,14 +94,14 @@ const CartItemList = () => {
 }
 
 const EmptyCartOld = () => {
-    const dispatch = useDispatch();
+    const setCartIsOpen = useUiStore((state) => state.setCartIsOpen);
     return (
         <div className="flex-1 w-full flex flex-col items-center justify-center p-2 lg:p-4">
             <div className="flex flex-col items-center justify-center flex-1 w-full p-2 lg:p-4">
                 <ShoppingBagIcon className="w-24 h-24 text-gray-500 mb-6" />
                 <p className="mb-8 text-center text-gray-500">Your cart is Empty</p>
                 <button
-                    onClick={() => dispatch(toggleCartAction())}
+                    onClick={() => setCartIsOpen(false)}
                     className="py-4 hover:bg-green-400 w-full border text-sm lg:text-lg font-semibold uppercase bg-black text-white transition-all duration-150 checkoutbtn flex items-center justify-center gap-2"
                 >
                     Start Shopping
