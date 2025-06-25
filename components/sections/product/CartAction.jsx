@@ -2,19 +2,39 @@
 
 import useCartStore from "@/store/cart-store";
 import UpcomingFeature from "@/components/modals/UpcomingFeature";
+import { useState } from "react";
 
 export default function CartAction({ product }) {
     const setCartItems = useCartStore((state) => state.setCartItems);
+
+    const [qty, setQty] = useState(1);
+
+    const handleQty = (action) => {
+
+        if (action === 'decrement') {
+            if (qty > 1) {
+                setQty(prev => prev - 1);
+            }
+        }
+
+        if (action === 'increment') {
+            if (qty < product.stock_quantity) {
+                setQty(prev => prev + 1);
+            }
+        }
+    }
+
 
     const handleAddToCart = () => {
         setCartItems({
             slug: product.slug,
             image: product.product_images[0],
             name: product.name,
-            quantity: 1,
+            quantity: qty,
             unit_price: product.sale_price,
             available_stock: product.stock_quantity,
         });
+        setQty(1);
     }
 
     return (
@@ -32,9 +52,9 @@ export default function CartAction({ product }) {
             <div className="flex space-x-3">
                 <div className="w-24 md:w-32 h-12">
                     <div className="flex flex-row w-full h-full rounded-lg relative bg-transparent border border-1 border-gray-300">
-                        <button data-action="decrement" className="text-gray-600 hover:text-primary-500 h-full w-20 rounded-l cursor-pointer outline-none text-2xl font-medium">−</button>
-                        <input type="number" className="outline-none focus:outline-none text-center w-full font-semibold text-lg hover:text-black focus:text-black lg:text-base cursor-default flex items-center text-gray-700" name="custom-input-number" readOnly value="1" />
-                        <button data-action="increment" className="text-gray-600 hover:text-primary-500 h-full w-20 rounded-r cursor-pointer text-2xl font-medium">+</button>
+                        <button type="button" onClick={handleQty.bind(this, 'decrement')} className="text-gray-600 hover:text-primary-500 h-full w-20 rounded-l cursor-pointer outline-none text-2xl font-medium">−</button>
+                        <input type="number" className="outline-none focus:outline-none text-center w-full font-semibold text-lg hover:text-black focus:text-black lg:text-base cursor-default flex items-center text-gray-700" name="custom-input-number" readOnly value={qty} />
+                        <button type="button" onClick={handleQty.bind(this, 'increment')} className="text-gray-600 hover:text-primary-500 h-full w-20 rounded-r cursor-pointer text-2xl font-medium">+</button>
                     </div>
                 </div>
                 <button onClick={handleAddToCart} className="bg-primary-500 px-1 h-12 text-white rounded-lg min-w-[140px] md:min-w-[160px] text-sm hover:bg-primary-600 transition-colors duration-300" type="button">ADD TO CART </button>

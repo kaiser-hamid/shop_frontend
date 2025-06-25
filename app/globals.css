@@ -169,5 +169,36 @@
     @apply text-lg leading-6 font-normal text-gray-400/40 line-through;
 }
 
+/* Remove number input spinner */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Cart Price Bounce Animation */
+@keyframes cartPriceBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-30px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-20px);
+    }
+}
+
+.cart-price-bounce {
+    animation: cartPriceBounce 1s ease-in-out;
+}
+
 
 

@@ -8,6 +8,7 @@ const useCartStore = create(
       
       cartItems: [],//{slug: string, image: string, name: string, quantity: number, unit_price: number, stock: number}
       totalPrice: 0,
+      previousTotalPrice: 0,
       totalItems: 0,
 
       setCartIsOpen: (payload) => set({ cartIsOpen: payload }),
@@ -50,7 +51,12 @@ const useCartStore = create(
             const totalCartItems = newCartItems.length;
             const totalCartPrice = newCartItems.reduce((acc, item) => acc + item.quantity * item.unit_price, 0);
             
-            return { cartItems: newCartItems, totalPrice: totalCartPrice, totalItems: totalCartItems };
+            return { 
+              cartItems: newCartItems, 
+              previousTotalPrice: state.totalPrice,
+              totalPrice: totalCartPrice, 
+              totalItems: totalCartItems 
+            };
           });
             
         } else {
@@ -62,12 +68,17 @@ const useCartStore = create(
                 const totalCartItems = newCartItems.length;
                 const totalCartPrice = newCartItems.reduce((acc, item) => acc + item.quantity * item.unit_price, 0);
 
-                return { cartItems: newCartItems, totalPrice: totalCartPrice, totalItems: totalCartItems };
+                return { 
+                  cartItems: newCartItems, 
+                  previousTotalPrice: state.totalPrice,
+                  totalPrice: totalCartPrice, 
+                  totalItems: totalCartItems 
+                };
             });
         }
       },
 
-      setItemQuantity: (payload) => {
+      setItemQuantitySpinner: (payload) => {
         const { slug, quantity, operation } = payload;
 
         set((state) => {
@@ -91,10 +102,33 @@ const useCartStore = create(
             const totalCartItems = newCartItems.length;
             const totalCartPrice = newCartItems.reduce((acc, item) => acc + item.quantity * item.unit_price, 0);
 
-            return { cartItems: newCartItems, totalPrice: totalCartPrice, totalItems: totalCartItems };
+            return { 
+              cartItems: newCartItems, 
+              previousTotalPrice: state.totalPrice,
+              totalPrice: totalCartPrice, 
+              totalItems: totalCartItems 
+            };
         });
         
       },
+
+      setRemoveItemFromCart: (payload) => {
+        const { slug } = payload;
+
+        set((state) => {
+          const restCartItems = state.cartItems.filter((item) => item.slug !== slug);
+
+          const totalCartItems = restCartItems.length;
+          const totalCartPrice = restCartItems.reduce((acc, item) => acc + item.quantity * item.unit_price, 0);
+
+          return { 
+            cartItems: restCartItems, 
+            previousTotalPrice: state.totalPrice,
+            totalPrice: totalCartPrice, 
+            totalItems: totalCartItems 
+          };
+        });
+      }
     }),
     {
       name: 'cart-storage',
