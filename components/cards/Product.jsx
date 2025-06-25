@@ -1,6 +1,7 @@
 import { StarIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import useCartStore from "@/store/cart-store";
 
 export default function Product({ hit }) {
 
@@ -21,7 +22,7 @@ export default function Product({ hit }) {
             </Link>
 
             {/* Action button */}
-            <ActionButton />
+            <ActionButton product={hit} />
         </div>
     )
 }
@@ -50,9 +51,9 @@ const ProductDetails = ({ hit }) => {
             </div>
             <div className="flex justify-start md:justify-center space-x-3 mb-1">
                 {hit.price !== hit.sale_price && (
-                    <span className="line-through text-gray-400">৳ {hit.price}</span>
+                    <span className="line-through text-gray-400">৳ {Math.ceil(hit.price).toFixed(2)}</span>
                 )}
-                <span className="text-primary-500 font-semibold">৳ {hit.sale_price}</span>
+                <span className="text-primary-500 font-semibold">৳ {Math.ceil(hit.sale_price).toFixed(2)}</span>
             </div>
             <p className="text-primary-500 font-semibold text-left md:text-center mb-0 min-h-[24px]"></p>
             <div className="text-left md:text-center mb-1">
@@ -82,13 +83,45 @@ const ProductDetails = ({ hit }) => {
     )
 }
 
-const ActionButton = () => {
+const ActionButton = ({ product }) => {
+    const setCartItems = useCartStore((state) => state.setCartItems);
+    const setCartIsOpen = useCartStore((state) => state.setCartIsOpen);
+    const cartItems = useCartStore((state) => state.cartItems);
+
+    const isInCart = cartItems.some((item) => item.slug === product.slug);
+
+    const handleAddToCart = () => {
+        setCartItems({
+            slug: product.slug,
+            image: product.featured_image,
+            name: product.name,
+            quantity: 1,
+            unit_price: Math.ceil(product.sale_price),
+            available_stock: product.stock_quantity,
+        });
+    }
+
+    const handleViewCart = () => {
+        setCartIsOpen(true);
+    }
+
+    let buttonLabel = 'ADD TO CART';
+
+    if (product.stock_quantity === 0) {
+        buttonLabel = 'OUT OF STOCK';
+    }
+
+    if (isInCart) {
+        buttonLabel = 'VIEW CART';
+    }
+
     return (
         <button
             type="button"
+            onClick={isInCart ? handleViewCart : handleAddToCart}
             className="p-3 bg-primary-500 text-white w-full text-center rounded-b-xl uppercase hover:bg-rr-black hover:transition hover:ease-in hover:duration-300 font-semibold"
         >
-            ADD TO CART
+            {buttonLabel}
         </button>
     )
 }
