@@ -12,6 +12,7 @@
     "@algolia/recommend": "^5.29.0",
     "@headlessui/react": "^2.2.2",
     "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^5.1.1",
     "algoliasearch": "^5.27.0",
     "axios": "^1.10.0",
     "next": "15.3.1",
@@ -19,12 +20,14 @@
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.58.1",
     "react-image-gallery": "^1.4.0",
     "react-instantsearch": "^7.15.8",
     "react-instantsearch-dom": "^6.40.4",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.2.6",
+    "yup": "^1.6.1",
     "zustand": "^5.0.5"
   },
   "devDependencies": {
