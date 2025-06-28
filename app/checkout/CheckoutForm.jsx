@@ -10,6 +10,10 @@ import * as yup from "yup";
 import UpcomingFeature from "@/components/modals/UpcomingFeature";
 import useCartStore from "@/store/cart-store";
 import PageLoader from "@/components/ui/PageLoader";
+import Button from "@/components/ui/buttons/Button";
+import httpClient from "@/lib/HttpClient";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const SHIPPING_COST = { inside_dhaka: 66, outside_dhaka: 99 };
 
@@ -29,13 +33,14 @@ const checkoutSchema = yup.object({
 
 export default function CheckoutForm({ cities, areas }) {
 
+    const router = useRouter();
     const [isPageLoading, setIsPageLoading] = useState(true);
     const cartItems = useCartStore(state => state.cartItems);
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isSubmitting },
         watch,
         setValue,
     } = useForm({
@@ -52,16 +57,57 @@ export default function CheckoutForm({ cities, areas }) {
         }
     });
 
+    console.log('isSubmitting', isSubmitting);
+
     const watchedCity = watch("customer_city");
 
     useEffect(() => {
         setIsPageLoading(false);
     }, [cartItems]);
 
-    const onSubmit = (data) => {
-        console.log("Form data:", data);
-        // Handle form submission here
+    const onSubmit = async (form_data) => {
+        //return if cart is empty
+        if (cartItems.length === 0) {
+            toast.error("Please add items to the cart first.");
+            return;
+        }
+
+        const formData = prepareFormData(form_data);
+
+        try {
+            const { data: { status, message, data } } = await httpClient.post("/checkout/save-order", formData, { headers: { "Content-Type": "multipart/form-data" } });
+            if (status) {
+                toast.success("Order placed successfully");
+                router.replace(`/order/${data.order_id}`);
+            } else {
+                toast.error(message);
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            toast.error(error.response?.data?.message || "Something went wrong");
+        }
     };
+
+    const prepareFormData = (data) => {
+        const formData = new FormData();
+        formData.append("customer_name", data.customer_name);
+        formData.append("customer_phone", data.customer_phone);
+        formData.append("customer_city", data.customer_city);
+        formData.append("customer_area", data.customer_area);
+        formData.append("customer_address", data.customer_address);
+        if (data.customer_city !== "Dhaka") {
+            formData.append("transaction_number", data.transaction_number);
+        }
+        formData.append("payment_method", 'cod');
+
+        console.log('cartItems', cartItems);
+        cartItems.forEach(item => {
+            formData.append("item_slugs[]", item.slug);
+            formData.append("item_quantities[]", item.quantity);
+        });
+
+        return formData;
+    }
 
     if (isPageLoading) {
         return <PageLoader />
@@ -82,7 +128,7 @@ export default function CheckoutForm({ cities, areas }) {
             <h2 className="text-lg font-medium py-4">BILLING &amp; SHIPPING</h2>
             <div className="flex flex-wrap md:flex-nowrap">
                 <FormFields register={register} errors={errors} setValue={setValue} city={watchedCity} cities={cities} areas={areas} />
-                <OrderSummary city={watchedCity} />
+                <OrderSummary city={watchedCity} isSubmitting={isSubmitting} />
             </div>
         </form>
     );
@@ -185,7 +231,7 @@ const FormFields = ({ register, errors, setValue, city, cities, areas }) => {
     )
 }
 
-const OrderSummary = ({ city }) => {
+const OrderSummary = ({ city, isSubmitting }) => {
     const totalPrice = useCartStore(state => state.totalPrice);
 
     const [showCoupon, setShowCoupon] = useState(false);
@@ -261,11 +307,11 @@ const OrderSummary = ({ city }) => {
                         <input type="radio" disabled={true} name="payment_method" className="mr-2 accent-primary-500" value="pther" />
                         Other methods
                     </label>
-
                 </div>
-                <button className="bg-primary-500 p-3 w-full text-white rounded-xl mt-5 uppercase hover:bg-primary-600 transition-all duration-300" type="submit">
+
+                <Button type="submit" className="bg-primary-500 p-3 w-full text-white rounded-xl mt-5 uppercase hover:bg-primary-600 transition-all duration-300" isLoading={isSubmitting}>
                     Place Order
-                </button>
+                </Button>
             </div>
         </div>
     )

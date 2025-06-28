@@ -4,6 +4,8 @@ import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import CartEvent from "@/components/ui/CartEvent";
 import Cart from "@/components/modals/Cart";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -25,6 +27,7 @@ export default function RootLayout({ children }) {
        <body className="text-base font-montserrat" suppressHydrationWarning={true}>
           <Header />
           <CartEvent />
+          <ToastContainer position="top-center" autoClose={3000} hideProgressBar={true} newestOnTop={true} closeOnClick pauseOnHover theme="colored" />
           <Cart />
           <main className="pt-28">
             {children}
