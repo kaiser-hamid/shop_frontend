@@ -11,7 +11,11 @@ import RoundedButton from "../ui/buttons/RoundedButton";
 import Image from "next/image";
 import React, { useRef } from "react";
 import PageOverlay from "./PageOverlay";
+import useCartStore from "@/store/cart-store";
+
 export default function Header() {
+    const totalItems = useCartStore(state => state.totalItems);
+    const setCartIsOpen = useCartStore(state => state.setCartIsOpen);
     return (
         <div className="fixed w-full top-0 z-10 bg-white nav-box z-30">
             <nav className="container z-30">
@@ -62,10 +66,10 @@ export default function Header() {
 
                             <RoundedButton onClick={() => { }} className="bg-gray-800 text-white uppercase">Wishlist</RoundedButton>
                             <RoundedButton onClick={() => { }} className="bg-slate-200 text-gray-800 uppercase">Login</RoundedButton>
-                            <RoundedButton onClick={() => { }} className="flex justify-center gap-x-2 bg-primary-500 text-white uppercase">
+                            <RoundedButton onClick={() => setCartIsOpen(true)} className="flex justify-center gap-x-2 bg-primary-500 text-white uppercase">
                                 <ShoppingBagIcon className="w-4 h-4" />
                                 <span>Bag</span>
-                                <span className="flex items-center justify-center text-xs h-5 w-5 rounded-full bg-white text-primary-500">0</span>
+                                <span className="flex items-center justify-center text-xs h-5 w-5 rounded-full bg-white text-primary-500">{totalItems}</span>
                             </RoundedButton>
                         </div>
 

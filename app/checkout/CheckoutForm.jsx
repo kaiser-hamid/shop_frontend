@@ -78,7 +78,7 @@ export default function CheckoutForm({ cities, areas }) {
             const { data: { status, message, data } } = await httpClient.post("/checkout/save-order", formData, { headers: { "Content-Type": "multipart/form-data" } });
             if (status) {
                 toast.success("Order placed successfully");
-                router.replace(`/order/${data.order_id}`);
+                router.push(`/order/${data.order_id}`);
             } else {
                 toast.error(message);
             }

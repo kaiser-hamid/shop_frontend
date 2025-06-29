@@ -128,6 +128,10 @@ const useCartStore = create(
             totalItems: totalCartItems 
           };
         });
+      },
+
+      setClearCart: () => {
+        set({ cartItems: [], totalPrice: 0, previousTotalPrice: 0, totalItems: 0 });
       }
     }),
     {
