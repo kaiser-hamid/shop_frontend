@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ E-Commerce Storefront
 
-## Getting Started
+A Next.js customer-facing storefront for a full-stack eCommerce 
+platform. Features Algolia InstantSearch with hierarchical category 
+filtering, cart management with Zustand, and a clean shopping 
+experience built with Shadcn/ui and Tailwind CSS.
 
-First, run the development server:
+🔗 **Live Demo:** [shop-frontend-six.vercel.app](https://shop-frontend-six.vercel.app)
+
+🔗 **Related Repositories**
+- [REST API Backend (Laravel)](https://github.com/kaiser-hamid/shop_api)
+- [Admin Panel (Next.js)](https://github.com/kaiser-hamid/shop_admin)
+
+---
+
+## ✨ Features
+
+- Algolia InstantSearch with hierarchical category filtering 
+  (3-level drill-down)
+- Advanced faceted filtering by brand, price range, and rating
+- Product listing and detail pages
+- Add to cart with persistent state via Zustand
+- Order placement flow
+- Responsive design with Tailwind CSS and Shadcn/ui components
+- Next.js App Router with optimized page structure
+
+---
+
+## 🛠️ Tech Stack
+
+**Framework:** Next.js 14+ (App Router)  
+**Language:** JavaScript  
+**Search:** Algolia InstantSearch  
+**State Management:** Zustand  
+**UI Components:** Shadcn/ui  
+**Styling:** Tailwind CSS  
+
+---
+
+## 🚀 Getting Started
+
+### Requirements
+- Node.js 18+
+- Algolia account
+- Running instance of [shop_api](https://github.com/kaiser-hamid/shop_api)
+
+### Installation
 
 ```bash
+git clone https://github.com/kaiser-hamid/shop_frontend.git
+cd shop_frontend
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+NEXT_PUBLIC_API_URL=http://localhost:8000/api
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NEXT_PUBLIC_ALGOLIA_APP_ID=your_app_id
 
-## Learn More
+NEXT_PUBLIC_ALGOLIA_SEARCH_KEY=your_search_only_api_key
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) to view in browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Project Structure
 
-## Deploy on Vercel
+app/                  # Next.js App Router pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+components/           # Reusable UI components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+├── search/           # Algolia InstantSearch components
+
+├── cart/             # Cart components
+
+└── ui/               # Shadcn/ui base components
+
+store/                # Zustand state management
+
+lib/                  # Utilities and API helpers
+
+---
+
+## 🔮 Planned Improvements
+
+- Authentication and user accounts
+- Checkout and payment integration (Stripe)
+- Order history and tracking
+- Product reviews and ratings
+- TypeScript migration
+
