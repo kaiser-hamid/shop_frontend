@@ -3,9 +3,7 @@
 A Next.js customer-facing storefront for a full-stack eCommerce 
 platform. Features Algolia InstantSearch with hierarchical category 
 filtering, cart management with Zustand, and a clean shopping 
-experience built with Shadcn/ui and Tailwind CSS.
-
-🔗 **Live Demo:** [shop-frontend-six.vercel.app](https://shop-frontend-six.vercel.app)
+experience built with Tailwind CSS.
 
 🔗 **Related Repositories**
 - [REST API Backend (Laravel)](https://github.com/kaiser-hamid/shop_api)
@@ -21,7 +19,7 @@ experience built with Shadcn/ui and Tailwind CSS.
 - Product listing and detail pages
 - Add to cart with persistent state via Zustand
 - Order placement flow
-- Responsive design with Tailwind CSS and Shadcn/ui components
+- Responsive design with Tailwind CSS
 - Next.js App Router with optimized page structure
 
 ---
@@ -32,7 +30,6 @@ experience built with Shadcn/ui and Tailwind CSS.
 **Language:** JavaScript  
 **Search:** Algolia InstantSearch  
 **State Management:** Zustand  
-**UI Components:** Shadcn/ui  
 **Styling:** Tailwind CSS  
 
 ---
